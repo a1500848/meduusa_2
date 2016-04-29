@@ -1,0 +1,55 @@
+CREATE TABLE `kayttaja` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `etunimi` varchar(20) NOT NULL,
+  `sukunimi` varchar(30) NOT NULL,
+  `puhelin` varchar(40) NOT NULL,
+  `sahkoposti` varchar(40) NOT NULL,
+  `salasana` varchar(300) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+CREATE TABLE `pizzatayte` (
+  `pizzaid` int(11) NOT NULL,
+  `tayteid` int(11) NOT NULL,
+  PRIMARY KEY (`pizzaid`,`tayteid`),
+  KEY `tayteid` (`tayteid`),
+  CONSTRAINT `pizzatayte_ibfk_1` FOREIGN KEY (`pizzaid`) REFERENCES `pizzakoe` (`id`),
+  CONSTRAINT `pizzatayte_ibfk_2` FOREIGN KEY (`tayteid`) REFERENCES `tayte` (`tayteid`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+CREATE TABLE `tayte` (
+  `tayteid` int(11) NOT NULL AUTO_INCREMENT,
+  `taytenimi` varchar(20) NOT NULL,
+  PRIMARY KEY (`tayteid`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+///haku komento pizoille ja täytteille
+
+SELECT pizzaid, p.nimi, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid);
+
+
+///täytteiden haku komento
+
+select * from tayte;
+
+---------uuden täytteen lisäys komento
+
+insert into tayte(taytenimi) values(?);
+
+
+
+
+
+
+
+
+
+
+
+
+

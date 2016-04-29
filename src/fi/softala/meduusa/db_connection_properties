@@ -1,0 +1,4 @@
+driver=org.mariadb.jdbc.Driver
+url=jdbc:mariadb://localhost/a1500848
+username=a1500848
+password=hyXIGS72m
