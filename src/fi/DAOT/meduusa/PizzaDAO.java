@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 
 
+import java.util.Iterator;
+
 import fi.softala.meduusa.Pizzatayte;
 import fi.softala.meduusa.Tayte;
 import fi.softala.meduusa.Tuote;
@@ -179,8 +181,7 @@ public class PizzaDAO {
 		return tuotteet;
 	}
 	
-	public void lisaaTuote(Tuote p) {
-
+	public boolean lisaaTuote(String nimi, String hinta, String[] taytteet) {
 		// avataan yhteys
 		avaaYhteys();
 
@@ -190,55 +191,66 @@ public class PizzaDAO {
 
 			// alustetaan sql-lause
 			String sql = "insert into pizzakoe(nimi, hinta) values(?,?)";
-			PreparedStatement lause = yhteys.prepareStatement(sql);
+			PreparedStatement lause = yhteys.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
 			// täytetään puuttuvat tiedot
-			lause.setString(1, p.getNimi());
-			lause.setDouble(2, p.getHinta());
+			lause.setString(1, nimi);
+			lause.setString(2, hinta);
 
 			// suoritetaan lause
 			lause.executeUpdate();
-			System.out.println("LISÄTTIIN tuote TIETOKANTAAN: " + p);
+			
+			ResultSet rs = lause.getGeneratedKeys();
+			rs.next();
+			int avain = rs.getInt(1);
+			
+			System.out.println("Avain: " + avain);
+			
+			ArrayList<String> parametrit = new ArrayList<String>();
+			
+			// pizzatäytteiden lisäys
+			for (int i = 0; i < taytteet.length; i++) {
+				if (i == 0) {
+				sql = "insert into pizzatayte(pizzaid, tayteid) values (?, ?)";
+				}
+				else {
+					sql += ", (?, ?)";
+				}
+				parametrit.add(String.valueOf(avain));
+				parametrit.add(String.valueOf(taytteet[i]));
+			}
+		
+			lause = yhteys.prepareStatement(sql);
+			
+			System.out.println(lause.toString());
+			
+			for (int i = 0; i < parametrit.size(); i++) {
+				lause.setString((i+1), parametrit.get(i));
+			}
+			
+			int onnistuks = lause.executeUpdate();
+			
+			System.out.println("Palautti " + onnistuks);
+			
+			if (onnistuks == taytteet.length) {
+				System.out.println("Jee pizzan lisäys onnistu");
+				return true;
+			}
+			else {
+				return false;
+			}
+			
+			
 		} catch (Exception e) {
 			// JOTAIN VIRHETTÄ TAPAHTUI
 			System.out.println("tapahtui virhe");
+			System.out.println(e);
+			return false;
 		} finally {
 			// LOPULTA AINA SULJETAAN YHTEYS
 			suljeYhteys();
 		}
-	}
-
-
-	public void lisaaTaytteita(Pizzatayte i) {
-
-		// avataan yhteys
-		avaaYhteys();
-
-		try {
-
-			// suoritetaan haku
-
-			// alustetaan sql-lause
-			String sql = "insert into pizzatayte(pizzaid, tayteid) values(?,?)";
-			PreparedStatement lause = yhteys.prepareStatement(sql);
-
-			// täytetään puuttuvat tiedot
-			lause.setString(1, i.getPizzaid());
-			lause.setString(2, i.getTayteid());
-
-			// suoritetaan lause
-			lause.executeUpdate();
-			System.out.println("LISÄTTIIN TÄYTE PIZZAAN: " + i);
-		} catch (Exception e) {
-			// JOTAIN VIRHETTÄ TAPAHTUI
-			System.out.println("tapahtui virhe");
-		} finally {
-			// LOPULTA AINA SULJETAAN YHTEYS
-			suljeYhteys();
-		}
+		
 	}
 	
-	
-	
-
 }

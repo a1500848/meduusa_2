@@ -101,12 +101,10 @@
 				</h2>
 			</div>
 			<div class="panel-body">
-				<form action="controller" method="Post">
 					<input type="text" name="tuoteNimi" placeholder="Tuotteen nimi" />
 					<br> <br> <input type="text" name="tuoteHinta"
 						placeholder="Tuotteen hinta" /> <br></br>
 					<button type='submit' name="action" value="lisaapizza">Lähetä tuotteen tiedot</button>
-				</form>
 			</div>
 			
 			<!-- Adminin valitse täyte uuteen pizzaan kenttä -->
@@ -123,8 +121,8 @@
 				</c:forEach>
 				<br>
 			</div>
-			
-			</form>
+							</form>
+		
 
 		</div>
 		<!--Footer-->

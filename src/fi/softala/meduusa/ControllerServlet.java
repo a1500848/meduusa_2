@@ -91,7 +91,6 @@ public class ControllerServlet extends HttpServlet {
 		double hinta = Double.parseDouble(tuoteHinta);
 		tuote.setNimi(tuoteNimi);
 		tuote.setHinta(hinta);
-		pDao.lisaaTuote(tuote);
 		}
 		
 		if (pizzataytePizzaid != null && pizzatayteTayteid != null) {
@@ -100,7 +99,6 @@ public class ControllerServlet extends HttpServlet {
 			pizzatayte.setPizzaid(pizzataytePizzaid);
 			
 			pizzatayte.setTayteid(pizzatayteTayteid);
-			pDao.lisaaTaytteita(pizzatayte);
 		}
 
 	}
