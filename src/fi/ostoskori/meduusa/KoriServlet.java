@@ -104,12 +104,12 @@ public class KoriServlet extends HttpServlet {
 			}
 			else if (poista != null) {
 				RequestDispatcher rd = request
-						 .getRequestDispatcher("WEB-INF/ostoskori.jsp");
+						 .getRequestDispatcher("ostoskori.jsp");
 						 rd.forward(request, response);
 			}
 			else {
 				 RequestDispatcher rd = request
-						 .getRequestDispatcher("WEB-INF/ostoskori.jsp");
+						 .getRequestDispatcher("ostoskori.jsp");
 						 rd.forward(request, response);
 			}
 	}

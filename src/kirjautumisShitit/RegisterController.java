@@ -49,7 +49,7 @@ public class RegisterController extends HttpServlet {
 
 			int i = paivitys.suoritaSqlLauseParametreilla(sql, parametrit);
 			if (i > 0) {
-				response.sendRedirect("rekisterointi.html");
+				response.sendRedirect("rekisterointi.jsp");
 			} else {
 				out.print("Problim offiker");
 			}
