@@ -39,6 +39,7 @@
  <body>
 
  <c:import url="/WEB-INF/navigaatio.jsp"></c:import>
+ 
 
     <div class="container">
       <div class="page-header">
@@ -77,7 +78,7 @@
 </div>
 
 
-
+<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 
 

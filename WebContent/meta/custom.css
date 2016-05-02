@@ -229,4 +229,6 @@ width:100%;
 height: auto;
 }
 
-
+.modalnappi:hover{
+	background: #5bc0de !important;
+}

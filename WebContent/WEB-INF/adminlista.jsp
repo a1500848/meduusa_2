@@ -135,6 +135,7 @@
 
 
 		</div>
+		<c:import url="/WEB-INF/modal.jsp"></c:import>
 		<!--Footer-->
 		<div class="nav navbar-default navbar-fixed-bottom">
 			<div class="container-fluid">

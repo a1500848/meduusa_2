@@ -73,7 +73,7 @@
 		</div>
 	</div>
 
-
+<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 
 	<!--Footer!-->

@@ -65,7 +65,7 @@
 		              <input type='text' class="form-control" name='cust_sahkoposti' />
 		          	</div>
 		          	 <div class="form-group col-lg-12">
-		              <label>Puhelin Numero</label>
+		              <label>Puhelinnumero</label>
 		              <input type='text' class="form-control" name='cust_puhelin' />
 		          	</div>
 		          	
@@ -111,7 +111,7 @@
 	</div>
 </div>
     
-  
+  <c:import url="/WEB-INF/modal.jsp"></c:import>
 
 
 

@@ -26,12 +26,12 @@
 				<li><a href="./controller">Pizzalista</a></li>
 				<li><a href="yhteystiedot.jsp">Yhteystiedot</a></li>
 				<c:choose>
-				<c:when test="${ kayttaja.sahkoposti == 'admin@meduusa.fi' }">
-				<li><a href="./adminController">Adminlista</a>
-				</c:when>
-				<c:otherwise>
-				<li></li>
-				</c:otherwise>
+					<c:when test="${ kayttaja.sahkoposti == 'admin@meduusa.fi' }">
+						<li><a href="./adminController">Adminlista</a>
+					</c:when>
+					<c:otherwise>
+						<li></li>
+					</c:otherwise>
 				</c:choose>
 			</ul>
 			<!-- oikeenpuoliset linkit -->
@@ -43,15 +43,17 @@
 						Ostoskori</a></li>
 				<c:choose>
 					<c:when test="${empty kayttaja }">
-						<li><a href="login.jsp">Kirjaudu Sis‰‰n</a></li>
+						<button type="button" class="btn btn-info btn-lg"
+					data-toggle="modal" data-target="#myModal">Kirjaudu sis‰‰n</button>
 					</c:when>
 
 					<c:otherwise>
-						<li><a
-							href="${pageContext.request.contextPath}/Kirjautuminen?logout=true">Kirjaudu
+						<li><a href="${pageContext.request.contextPath}/Kirjautuminen?logout=true" class="btn btn-info btn-lg modalnappi">Kirjaudu
 								ulos</a></li>
 					</c:otherwise>
 				</c:choose>
+				
+
 			</ul>
 		</div>
 	</div>
