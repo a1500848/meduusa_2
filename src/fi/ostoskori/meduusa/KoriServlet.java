@@ -88,6 +88,21 @@ public class KoriServlet extends HttpServlet {
 			ostoskori.add(uusituote);
 			
 			}
+			
+			// tuotteen poisto korista
+			
+			{
+				KoriTuote tuote = new KoriTuote();
+				if (tuote.getMaara() > 1) {
+					tuote.vahennaLukumaaraa(-1);
+				} else {
+					KoriTuote.remove(tuote);
+				}
+			}
+			
+			//Yhteissumma
+			
+			
 
 			session.setAttribute("kori", ostoskori); // Tallenna sessioon
 			
@@ -114,16 +129,6 @@ public class KoriServlet extends HttpServlet {
 			}
 	}
 
-	// t‰h‰n tulee jotai alexin koodia
-	// tuoteen lis‰ys
-	/*
-	 * public void lisaaLukumaara(); { KoriTuote tuote = new KoriTuote(); if
-	 * (tuote != null) { tuote.lisaaLukumaara(); } else { ostoskori.add(tuote);
-	 * } } //tuotteen poisto public void VahennaLukumaara(); { KoriTuote tuote =
-	 * new KoriTuote(); if (tuote.getMaara()>1) { tuote.vahennaLukumaaraa(-1); }
-	 * else { KoriTuote.remove(tuote); } }
-	 */
-	// //t‰h‰n p‰‰ttyy alexin uusi koodi
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

@@ -51,11 +51,31 @@ public class KoriTuote {
 		this.maara = maara;
 	}
 
-	public void vahennaLukumaara() {
-		maara--;
-	}
+	
+	
 	public void lisaaLukumaara() {
 		maara++;
 
 	}
-}
+
+	
+	public double getSumma() {
+		
+		return 0;
+	}
+
+	public void vahennaLukumaaraa(int i) {
+		maara--;
+		
+	}
+
+	public static void remove(KoriTuote tuote) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	
+	}
+

@@ -47,13 +47,14 @@
 										<h2>${itemi.nimi }</h2>
 										Hinta: ${itemi.hinta }<br> M‰‰r‰: ${itemi.maara }<br>
 										<br> <a href="?poista=${itemi.id }">Poista</a> <br>
-										Summa:
-										<fmt:formatNumber value="${ostoskori.sum}" type="currency" />
+										
 
 									</div>
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
+						YhteisHinta:
+										<fmt:formatNumber value="${ostoskori.sum}" type="currency" />
 						<p></p>
 						<h3>
 							<a href="checkout">Tilaukseen</a>
