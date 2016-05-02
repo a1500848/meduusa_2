@@ -56,7 +56,7 @@
 						</c:choose>
 						<p></p>
 						<h3>
-							<a href="/meduusa/checkout">Tilaukseen</a>
+							<a href="/meduusa_2/checkout">Tilaukseen</a>
 						</h3>
 						<form method='get' action='controller'>
 
