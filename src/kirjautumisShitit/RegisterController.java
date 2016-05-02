@@ -23,23 +23,35 @@ public class RegisterController extends HttpServlet {
 		String etunimi = request.getParameter("enimi");
 		String sukunimi = request.getParameter("snimi");
 		String puhelin = request.getParameter("puhelin");
-		
+
 		Salaaja salaaja = new Salaaja();
-		
-		
 
 		try {
+			Yhteys yhteys = new Yhteys();
+
+			Paivitys paivitys = new Paivitys(yhteys.getYhteys());
+			Kysely kysely = new Kysely(yhteys.getYhteys());
+
+			String sql = "select sahkoposti from kayttaja where sahkoposti = ?";
+			ArrayList<String> parametrit = new ArrayList<String>();
+			parametrit.add(sahkoposti);
+			
+			int i = kysely.suoritaYksittainenKyselyParametreilla(sql, parametrit); 
+			if (i > 0) {
+				response.sendRedirect("loginfail.jsp");
+			} else {
+				
+			
+
 			String suola = salaaja.generoiSuola();
 			String passuhash = salaaja.salaa(salasana, suola, "SHA-512", 500);
+
 			
-			Yhteys yhteys = new Yhteys();
-			
-			Paivitys paivitys = new Paivitys(yhteys.getYhteys());
-			
-			String sql = "insert into kayttaja values(null,?,?,?,?,?,?)";
-			
-			ArrayList<String> parametrit = new ArrayList<String>();
-			
+			sql = "insert into kayttaja values(null,?,?,?,?,?,?)";
+
+			parametrit = new ArrayList<String>();
+			parametrit.clear();
+		
 			parametrit.add(etunimi);
 			parametrit.add(sukunimi);
 			parametrit.add(puhelin);
@@ -47,12 +59,14 @@ public class RegisterController extends HttpServlet {
 			parametrit.add(passuhash);
 			parametrit.add(suola);
 
-			int i = paivitys.suoritaSqlLauseParametreilla(sql, parametrit);
+			i = paivitys.suoritaSqlLauseParametreilla(sql, parametrit);
 			if (i > 0) {
 				response.sendRedirect("rekisterointi.jsp");
 			} else {
 				out.print("Problim offiker");
 			}
+			
+		}
 
 		} catch (Exception e2) {
 			System.out.println(e2);
@@ -60,6 +74,7 @@ public class RegisterController extends HttpServlet {
 
 		out.close();
 	}
+
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 	}

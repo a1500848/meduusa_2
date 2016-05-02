@@ -40,11 +40,12 @@ public class Kysely {
 	 *            SQL-lauseen parametrit prepared statementsia varten. Voi olla
 	 *            myös monimuotoinen ArrayLista.
 	 */
-	public void suoritaYksittainenKyselyParametreilla(String sqlLause,
+	public int suoritaYksittainenKyselyParametreilla(String sqlLause,
 			ArrayList<String> parametrit) {
 		tulosjoukko.clear();
 
 		ResultSet resultSet = null;
+		int maara = 0;
 
 		try {
 			PreparedStatement valmisteltuLause = yhteys
@@ -60,38 +61,45 @@ public class Kysely {
 			while (resultSet.next()) {
 				HashMap tulosrivi = tallennaHashMappiin(resultSet);
 				tulosjoukko.add(tulosrivi);
+				maara++;
 			}
 		} catch (SQLException ex) {
 			Yhteys.kasitteleVirhe("Virhe kyselyn suorittamisessa.", ex);
 		} finally {
 			try {
 				resultSet.close();
+				return maara;
 			} catch (SQLException ex) {
 				Yhteys.kasitteleVirhe("Virhe sulkemisessa.", ex);
 			}
 		}
+		return maara;
 	}
 
-	public void suoritaYksittainenKysely(String sqlLause) {
+	public int suoritaYksittainenKysely(String sqlLause) {
 		tulosjoukko.clear();
 		Statement statement = null;
 		ResultSet resultSet = null;
+		int maara = 0;
 		try {
 			statement = yhteys.createStatement();
 			resultSet = statement.executeQuery(sqlLause);
 			while (resultSet.next()) {
 				HashMap tulosrivi = tallennaHashMappiin(resultSet);
 				tulosjoukko.add(tulosrivi);
+				maara++;
 			}
 		} catch (SQLException ex) {
 			Yhteys.kasitteleVirhe("Virhe kyselyn suorittamisessa.", ex);
 		} finally {
 			try {
 				statement.close(); // sulkee myÃ¶s ResultSetin
+				return maara;
 			} catch (SQLException ex) {
 				Yhteys.kasitteleVirhe("Virhe sulkemisessa.", ex);
 			}
 		}
+		return maara;
 	}
 
 	/**
