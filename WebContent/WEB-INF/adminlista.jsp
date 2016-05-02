@@ -50,7 +50,7 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-6">
 					<c:forEach items="${lista}" var="Pizza">
 						<div class="panel panel-default">
 
@@ -65,8 +65,12 @@
 									<input type="hidden" name='tuote' value='${Pizza.id}'>
 									<div class="checkbox-inline text-muted"></div>
 									<div class="checkbox-inline text-muted"></div>
-									
+									<div class="lisaaAdmin">
+									<button type='submit' value='Piilotapizza'
+											class="btn btn-success">Piilota</button>
+											</div>
 								</div>
+								
 								<div class="panel-body">
 									<c:forEach items="${Pizza.taytteet }" var="pizzantaytteet">
  	${pizzantaytteet.taytenimi }, </c:forEach>
@@ -77,8 +81,8 @@
 						</div>
 					</c:forEach>
 				</div>
-			</div>
-<!-- Adminin t‰ytteen lis‰ys tietokantaan kentt‰ -->
+				<div class="col-md-6">
+				<!-- Adminin t‰ytteen lis‰ys tietokantaan kentt‰ -->
 			<div class="panel-heading">
 				<h2>
 					<strong>Lis‰‰ t‰yte tietokantaan</strong>
@@ -121,8 +125,14 @@
 				</c:forEach>
 				<br>
 			</div>
+			
 							</form>
 		
+				</div>
+				
+				
+			</div>
+
 
 		</div>
 		<!--Footer-->

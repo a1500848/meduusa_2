@@ -150,7 +150,10 @@ iframe {
 	color: black;
 	border: white; 
 }
-
+.lisaaAdmin {
+	float:right;
+  margin-right: 8px;
+}
 /*yhteystiedot.html*/
 hr {
   max-width: 870px;

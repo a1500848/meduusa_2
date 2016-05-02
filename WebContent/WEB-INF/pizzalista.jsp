@@ -64,12 +64,7 @@
 											value="${Pizza.hinta}" />
 									</p>
 									<input type="hidden" name='tuote' value='${Pizza.id}'>
-									<div class="checkbox-inline text-muted">
-										<label><input type="checkbox" value="">Normaali</label>
-									</div>
-									<div class="checkbox-inline text-muted">
-										<label><input type="checkbox" value="">Perhe</label>
-									</div>
+								
 									<div class="lisaa">
 										<input type="hidden" name="id" value="${Pizza.id }"> <input
 											type="hidden" name="nimi" value="${Pizza.nimi }"> <input
