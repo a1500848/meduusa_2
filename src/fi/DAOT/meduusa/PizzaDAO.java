@@ -251,6 +251,63 @@ public class PizzaDAO {
 			suljeYhteys();
 		}
 		
+		
+		
+	}
+	public void piilotaTuote(int id){
+		try {
+			// suoritetaan haku
+			String sql = "UPDATE pizzakoe SET piilotus = 'Piilotettu'  WHERE id =?;";
+			PreparedStatement haku = yhteys.prepareStatement(sql);
+			ResultSet tulokset = haku.executeQuery(sql);
+
+			// käydään hakutulokset läpi
+			
+			haku.setInt(1, id);
+			haku.executeUpdate();
+			
+
+		} catch (Exception e) {
+			// JOTAIN VIRHETTÄ TAPAHTUI
+			e.printStackTrace();
+			System.out
+					.println("Tietokantahaku aiheutti virheen");
+		} finally {
+
+		}
+
+		System.out
+				.println("HAETTIIN TIETOKANNASTA tayte: ");
+		suljeYhteys();
+		
 	}
 	
-}
+	public void tuoTuote(int id){
+		try {
+			// suoritetaan haku
+			String sql = "UPDATE pizzakoe SET piilotus = null WHERE id =?";
+			PreparedStatement haku = yhteys.prepareStatement(sql);
+			ResultSet tulokset = haku.executeQuery(sql);
+
+			// käydään hakutulokset läpi
+			
+			haku.setInt(1, id);
+			haku.executeUpdate();
+			
+
+		} catch (Exception e) {
+			// JOTAIN VIRHETTÄ TAPAHTUI
+			e.printStackTrace();
+			System.out
+					.println("Tietokantahaku aiheutti virheen");
+		} finally {
+
+		}
+
+		System.out
+				.println("HAETTIIN TIETOKANNASTA tayte: ");
+		suljeYhteys();
+		
+	}
+	}
+
