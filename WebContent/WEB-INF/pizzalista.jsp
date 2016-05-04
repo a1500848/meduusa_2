@@ -87,7 +87,7 @@
 			</div>
 
 
-<c:import url="/WEB-INF/modal.jsp"></c:import>
+
 
 			<!--Footer-->
 			<div class="nav navbar-default navbar-fixed-bottom">
@@ -110,6 +110,8 @@
 					</div>
 				</div>
 			</div>
+			
+			<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 			<div class="modal fade" id="tayte" role="dialog">
 				<div class="modal-dialog">

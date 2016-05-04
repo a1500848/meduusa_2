@@ -229,6 +229,17 @@ width:100%;
 height: auto;
 }
 
+/* kirjaudu sis‰‰n nappi*/
+.nappi {
+	background: none !important;
+	border: none;
+	padding-top: 12px;
+	font-size: 20px;
+}
+
 .modalnappi:hover{
 	background: #5bc0de !important;
+	border: white;
 }
+
+

@@ -43,7 +43,7 @@
 						Ostoskori</a></li>
 				<c:choose>
 					<c:when test="${empty kayttaja }">
-						<button type="button" class="btn btn-info btn-lg"
+						<button type="button" class="btn btn-info btn-lg nappi"
 					data-toggle="modal" data-target="#myModal">Kirjaudu sis‰‰n</button>
 					</c:when>
 

@@ -32,7 +32,7 @@
 			</div>
 		</div>
 	</div>
-<c:import url="/WEB-INF/modal.jsp"></c:import>
+
 	<!--Footer!-->
 	<div class="nav navbar-default navbar-fixed-bottom">
 		<div class="container-fluid">
@@ -53,6 +53,8 @@
 			</div>
 		</div>
 	</div>
+	
+	<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

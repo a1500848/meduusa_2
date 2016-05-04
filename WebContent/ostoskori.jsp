@@ -73,7 +73,7 @@
 		</div>
 	</div>
 
-<c:import url="/WEB-INF/modal.jsp"></c:import>
+
 
 
 	<!--Footer!-->
@@ -97,7 +97,7 @@
 		</div>
 	</div>
 
-
+<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
