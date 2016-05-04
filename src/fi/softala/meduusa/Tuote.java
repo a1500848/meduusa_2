@@ -8,6 +8,7 @@ public class Tuote {
 	String nimi;
 	double hinta;
 	ArrayList<Tayte> taytteet;
+	int piilotus;
 
 	public Tuote() {
 		super();
@@ -20,6 +21,7 @@ public class Tuote {
 		this.nimi = nimi;
 		this.hinta = hinta;
 		this.taytteet = taytteet;
+		
 	}
 
 	public int getId() {
@@ -28,6 +30,12 @@ public class Tuote {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	public int getPiilotus(){
+		return piilotus;
+	}
+	public void setPiilotus(int piilotus){
+		this.piilotus = piilotus;
 	}
 
 	public String getNimi() {
@@ -57,8 +65,9 @@ public class Tuote {
 	@Override
 	public String toString() {
 		return "Tuote [id=" + id + ", nimi=" + nimi + ", hinta=" + hinta
-				+ ", taytteet=" + taytteet + "]";
+				+ ", taytteet=" + taytteet + ", piilotus=" + piilotus + "]";
 	}
-	
+
+
 
 }

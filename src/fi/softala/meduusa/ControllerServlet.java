@@ -79,6 +79,7 @@ public class ControllerServlet extends HttpServlet {
 		String tuoteHinta = request.getParameter("tuoteHinta");
 		String pizzataytePizzaid = request.getParameter("pizzataytePizzaid");
 		String pizzatayteTayteid = request.getParameter("pizzatayteTayteid");
+
 		
 		if (tayteNimi != null) {
 		Tayte tayte = new Tayte();
@@ -100,7 +101,7 @@ public class ControllerServlet extends HttpServlet {
 			
 			pizzatayte.setTayteid(pizzatayteTayteid);
 		}
-
+	
 	}
 
 }

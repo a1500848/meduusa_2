@@ -12,6 +12,9 @@ import java.util.ArrayList;
 
 import java.util.Iterator;
 
+import kirjautumisShitit.Kysely;
+import kirjautumisShitit.Paivitys;
+import kirjautumisShitit.Yhteys;
 import fi.softala.meduusa.Pizzatayte;
 import fi.softala.meduusa.Tayte;
 import fi.softala.meduusa.Tuote;
@@ -256,15 +259,26 @@ public class PizzaDAO {
 	}
 	public void piilotaTuote(int id){
 		try {
+			
+			Yhteys yhteys = new Yhteys();
+			Paivitys paivitys = new Paivitys(yhteys.getYhteys());
+			
 			// suoritetaan haku
-			String sql = "UPDATE pizzakoe SET piilotus = 'Piilotettu'  WHERE id =?;";
-			PreparedStatement haku = yhteys.prepareStatement(sql);
-			ResultSet tulokset = haku.executeQuery(sql);
+			String sql = "UPDATE pizzakoe SET piilotus = '1'  WHERE id = ?;";
+
+			ArrayList<String> parametrit = new ArrayList<String>();
+			parametrit.add(String.valueOf(id));
 
 			// käydään hakutulokset läpi
 			
-			haku.setInt(1, id);
-			haku.executeUpdate();
+			int i = paivitys.suoritaSqlLauseParametreilla(sql, parametrit);
+			if (i > 0) {
+				System.out.println("onnistu piilotus");
+			} else {
+				System.out.println("ei onnistunu piiloltus");
+			}
+
+			
 			
 
 		} catch (Exception e) {
@@ -275,24 +289,31 @@ public class PizzaDAO {
 		} finally {
 
 		}
-
-		System.out
-				.println("HAETTIIN TIETOKANNASTA tayte: ");
-		suljeYhteys();
 		
 	}
 	
 	public void tuoTuote(int id){
 		try {
+			
+			Yhteys yhteys = new Yhteys();
+			Paivitys paivitys = new Paivitys(yhteys.getYhteys());
+			
 			// suoritetaan haku
-			String sql = "UPDATE pizzakoe SET piilotus = null WHERE id =?";
-			PreparedStatement haku = yhteys.prepareStatement(sql);
-			ResultSet tulokset = haku.executeQuery(sql);
+			String sql = "UPDATE pizzakoe SET piilotus = '0'  WHERE id = ?;";
+
+			ArrayList<String> parametrit = new ArrayList<String>();
+			parametrit.add(String.valueOf(id));
 
 			// käydään hakutulokset läpi
 			
-			haku.setInt(1, id);
-			haku.executeUpdate();
+			int i = paivitys.suoritaSqlLauseParametreilla(sql, parametrit);
+			if (i > 0) {
+				System.out.println("onnistu tuominen");
+			} else {
+				System.out.println("ei onnistunu tuominen");
+			}
+
+			
 			
 
 		} catch (Exception e) {
@@ -303,11 +324,5 @@ public class PizzaDAO {
 		} finally {
 
 		}
-
-		System.out
-				.println("HAETTIIN TIETOKANNASTA tayte: ");
-		suljeYhteys();
-		
-	}
-	}
+	}}
 

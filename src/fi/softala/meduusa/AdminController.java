@@ -124,7 +124,23 @@ public class AdminController extends HttpServlet {
 			
 			
 			
-		} else {
+		} else if (action != null && action.equals("piilotaPizza")) {
+			String id = request.getParameter("id");
+			int idint = 0;
+			if (id != null) {
+				idint = Integer.parseInt(id);
+			}
+			pDao.piilotaTuote(idint);
+		} else if (action != null && action.equals("tuoPizza")){
+			String id = request.getParameter("id");
+			int idint = 0;
+			if (id != null) {
+				idint = Integer.parseInt(id);
+			}
+			pDao.tuoTuote(idint);
+		}
+		
+		else {
 			doGet(request, response);
 		}
 

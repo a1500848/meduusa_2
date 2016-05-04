@@ -42,7 +42,7 @@
 
 
 
-<!--  Admin pizzalista -->
+	<!--  Admin pizzalista -->
 	<div class="lista">
 		<hr>
 		<h3>Yll‰pit‰j‰n pizzalista</h3>
@@ -65,12 +65,19 @@
 									<input type="hidden" name='tuote' value='${Pizza.id}'>
 									<div class="checkbox-inline text-muted"></div>
 									<div class="checkbox-inline text-muted"></div>
+									</form>
+									<form action="adminController" method="post">
 									<div class="lisaaAdmin">
-									<button type='submit' value='Piilotapizza'
-											class="btn btn-success">Piilota</button>
-											</div>
+									<input type="hidden" name="id" value="${Pizza.id }">
+										<button type='submit' value='piilotaPizza'
+											class="btn btn-success" name="action">Piilota</button>
+									</div>
+									<div class="lisaaAdmin">
+										<button type='submit' value='tuoPizza'
+											class="btn btn-success" name="action">N‰yt‰</button>
+									</div>
 								</div>
-								
+
 								<div class="panel-body">
 									<c:forEach items="${Pizza.taytteet }" var="pizzantaytteet">
  	${pizzantaytteet.taytenimi }, </c:forEach>
@@ -82,60 +89,64 @@
 					</c:forEach>
 				</div>
 				<div class="col-md-6">
-				<!-- Adminin t‰ytteen lis‰ys tietokantaan kentt‰ -->
-			<div class="panel-heading">
-				<h2>
-					<strong>Lis‰‰ t‰yte tietokantaan</strong>
-				</h2>
-			</div>
-			<div class="panel-body">
-				<form action="controller" method="Post">
-					<input type="text" name="tayteNimi" placeholder="tayte" />
-
-					<button type='submit' name="action" value="lisaatayte">L‰het‰ t‰ytteen tiedot</button>
-				</form>
-			</div>
-
-			<!-- Adminin pizzanlis‰ys kentt‰ -->
-
-			<form method="post" action="adminController">
-			<div class="panel-heading">
-				<h2>
-					<strong>Lis‰‰ pizza tietokantaan</strong>
-				</h2>
-			</div>
-			<div class="panel-body">
-					<input type="text" name="tuoteNimi" placeholder="Tuotteen nimi" />
-					<br> <br> <input type="text" name="tuoteHinta"
-						placeholder="Tuotteen hinta" /> <br></br>
-					<button type='submit' name="action" value="lisaapizza">L‰het‰ tuotteen tiedot</button>
-			</div>
-			
-			<!-- Adminin valitse t‰yte uuteen pizzaan kentt‰ -->
-			<div class="panel-heading">
-				<h2>
-					<strong>Valitse t‰yte</strong>
-				</h2>
-			</div>
-			<div class="panel-body">
-				<c:forEach items="${taytteet }" var="tayte">
-					<div class="checkbox-inline text-muted">
-						<input type="checkbox" id="${tayte.tayteid }" name="tayteboksi" value="${tayte.tayteid }"><label for="${tayte.tayteid }">${tayte.taytenimi }</label>
+					<!-- Adminin t‰ytteen lis‰ys tietokantaan kentt‰ -->
+					<div class="panel-heading">
+						<h2>
+							<strong>Lis‰‰ t‰yte tietokantaan</strong>
+						</h2>
 					</div>
-				</c:forEach>
-				<br>
-			</div>
-			
-							</form>
-		
+					<div class="panel-body">
+						<form action="controller" method="Post">
+							<input type="text" name="tayteNimi" placeholder="tayte" />
+
+							<button type='submit' name="action" value="lisaatayte">L‰het‰
+								t‰ytteen tiedot</button>
+						</form>
+					</div>
+
+					<!-- Adminin pizzanlis‰ys kentt‰ -->
+
+					<form method="post" action="adminController">
+						<div class="panel-heading">
+							<h2>
+								<strong>Lis‰‰ pizza tietokantaan</strong>
+							</h2>
+						</div>
+						<div class="panel-body">
+							<input type="text" name="tuoteNimi" placeholder="Tuotteen nimi" />
+							<br> <br> <input type="text" name="tuoteHinta"
+								placeholder="Tuotteen hinta" /> <br></br>
+							<button type='submit' name="action" value="lisaapizza">L‰het‰
+								tuotteen tiedot</button>
+						</div>
+
+						<!-- Adminin valitse t‰yte uuteen pizzaan kentt‰ -->
+						<div class="panel-heading">
+							<h2>
+								<strong>Valitse t‰yte</strong>
+							</h2>
+						</div>
+						<div class="panel-body">
+							<c:forEach items="${taytteet }" var="tayte">
+								<div class="checkbox-inline text-muted">
+									<input type="checkbox" id="${tayte.tayteid }" name="tayteboksi"
+										value="${tayte.tayteid }"><label
+										for="${tayte.tayteid }">${tayte.taytenimi }</label>
+								</div>
+							</c:forEach>
+							<br>
+						</div>
+
+					</form>
+
 				</div>
-				
-				
+
+
 			</div>
 
 
 		</div>
-		
+
 		<!--Footer-->
 		<div class="nav navbar-default navbar-fixed-bottom">
 			<div class="container-fluid">
@@ -156,7 +167,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 		<script
