@@ -93,7 +93,7 @@
 		          	</table>
 		         
 		          		     
-		          		     <FORM ACTION="tilausvahvistus.jsp" METHOD="post">
+		          		    
              <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>
              Käteinen
             <BR>

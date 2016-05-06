@@ -37,7 +37,7 @@
 					<div class="col-md-12">
 						<c:choose>
 							<c:when test="${empty kori}">
-	Ostoskori on tyhjä
+	Ostoskorisi on tyhjä
 	</c:when>
 							<c:otherwise>
 
