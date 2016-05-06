@@ -250,14 +250,39 @@ height: auto;
 	outline: none !important;
 }
 
+
+/* kirjautumis popup*/
 .tab-pane {
-	background: rgba(255,219,190, 1) !important;
+	background: rgba(104,84,75, 1) !important;
 	border: none !important;
 }
 
 .well {
-	background: rgba(255,219,190, 1) !important;
+	background: rgba(104,84,75, 1) !important;
+	border: 1px solid rgba(104,84,75, 1) !important;
 }
+
+.form-control {
+	background-color: #f3e3ca !important;
+}
+
+.nav-tabs {
+	margin-bottom: 10px;
+}
+
+.modal-header h3{
+	color: white;
+	text-align: center;
+}
+
+.form-group {
+	color: white;
+}
+
+.ostootsikko {
+	color:white !important;
+}
+
 
 
 

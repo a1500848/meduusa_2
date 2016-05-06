@@ -44,7 +44,7 @@
 		<div class="row">
 		      <div class="col-md-12">
 		        <hr>
-		        <h2 class="intro-text text-center">Tilauksen teko</h2>
+		        <h2 class="intro-text text-center ostootsikko">Tilauksen teko</h2>
 		        <hr>
 		        <form role="form" method="post">
 		          <div class="row">
@@ -68,22 +68,10 @@
 		              <label>Puhelinnumero</label>
 		              <input type='text' class="form-control" name='cust_puhelin' />
 		          	</div>
-		          	<FORM ACTION="tilausvahvistus.jsp" METHOD="post">
-             <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>
-             K‰teinen
-            <BR>
-            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu2">
-            Pankkikorrti
-            <BR>
-            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu3">
-            Verkkomaksu
-            <BR>
-            
-        </FORM>
 		          	
 		          	
-		          	<div style="background: #FFF;">
-		          	<h2>Tilaus</h2>
+		          	
+		          	
 		          	<table>
 		          	
 
@@ -95,23 +83,35 @@
 		          			<th>Valitut tuotteet</th>
 		          			<td>${itemi.nimi }</td>
 		          		</tr>
+		          			<tr>
 		          			
+		          			
+		          			<th>M‰‰r‰</th>
+		          			<td>${itemi.maara }</td>
+		          			
+		          			</tr>
 		          		<tr>
 		          			<th>${itemi.hinta }</th>
-		          			<td>hinta</td>
-		          		</tr>
-		          		
-		          				
-			</c:forEach>
-			<tr>
-		          			<th>${ostoskorisumma }</th>
 		          			<td>Yhteishinta</td>
 		          		</tr>
-		          		
+		          				
+			</c:forEach>
 		          	</table>
-		          	</div>
-		          
-		          		
+		          		     
+		          		     <FORM ACTION="tilausvahvistus.jsp" METHOD="post">
+             <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>
+             K‰teinen
+            <BR>
+            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu2">
+            Pankkikorrti
+            <BR>
+            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu3">
+            Verkkomaksu
+            <BR>
+            
+        </FORM>
+		          		     
+		          		          	
 		          <div class="form-group col-lg-12">
 		            <input type="hidden" name="save" value="contact">
 		            <button type="submit" class="btn btn-default">Maksa tilaus</button>
