@@ -134,6 +134,62 @@ public class PizzaDAO {
 		try {
 
 			// suoritetaan haku
+			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid) WHERE piilotus = 0";
+			Statement haku = yhteys.createStatement();
+			ResultSet resultset = haku.executeQuery(sql);
+			
+			// käydään hakutulokset läpi
+			while (resultset.next()) {
+
+				String tuoteId = resultset.getString("pizzaid");
+				String tuoteNimi = resultset.getString("nimi");
+				String tuoteHinta = resultset.getString("hinta");
+				String tayteId = resultset.getString("tayteid");
+				String tayte = resultset.getString("tayte");
+
+				boolean pizzaloytyi = false;
+
+				for (int i = 0; i < tuotteet.size(); i++) {
+					if (tuotteet.get(i).getId() == Integer.parseInt(tuoteId)) {
+						ArrayList<Tayte> pizzantaytteet = tuotteet.get(i)
+								.getTaytteet();
+						Tayte uusitayte = new Tayte(Integer.parseInt(tayteId),
+								tayte);
+						pizzantaytteet.add(uusitayte);
+						tuotteet.get(i).setTaytteet(pizzantaytteet);
+						pizzaloytyi = true;
+						i = tuotteet.size();
+					}
+				}
+
+				if (pizzaloytyi == false) {
+					ArrayList<Tayte> taytteet = new ArrayList<Tayte>();
+					Tayte tayteolio = new Tayte(Integer.parseInt(tayteId),
+							tayte);
+					taytteet.add(tayteolio);
+					Tuote tuote = new Tuote(Integer.parseInt(tuoteId),
+							tuoteNimi, Double.parseDouble(tuoteHinta), taytteet);
+					tuotteet.add(tuote);
+				}
+
+			}
+
+		} catch (Exception e) {
+			// JOTAIN VIRHEITÄ
+
+		} finally {
+
+		}
+
+		return tuotteet;
+	}
+	public ArrayList<Tuote> adminHaeTuotteet() {
+
+		ArrayList<Tuote> tuotteet = new ArrayList<Tuote>();
+
+		try {
+
+			// suoritetaan haku
 			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid)";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
@@ -183,7 +239,6 @@ public class PizzaDAO {
 
 		return tuotteet;
 	}
-	
 	public boolean lisaaTuote(String nimi, String hinta, String[] taytteet) {
 		// avataan yhteys
 		avaaYhteys();

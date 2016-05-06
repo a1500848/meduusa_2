@@ -46,7 +46,7 @@ public class AdminController extends HttpServlet {
 				// Tietokannasta pizzat
 				PizzaDAO pDao = new PizzaDAO();
 				pDao.avaaYhteys();
-				ArrayList<Tuote> lista = pDao.haeTuotteet();
+				ArrayList<Tuote> lista = pDao.adminHaeTuotteet();
 				ArrayList<Tayte> tayte = pDao.haeTaytteet();
 				try {
 					pDao.suljeYhteys();

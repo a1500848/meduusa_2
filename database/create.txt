@@ -50,6 +50,10 @@ SELECT * FROM pizzakoe WHERE piilotus = 0;
 
 SELECT * FROM pizzakoe WHERE piilotus = 1;
 
+////pizzan haku jos piilotus on null
+
+SELECT * FROM pizzakoe WHERE piilotus is null;
+
 --------pilotus
 
 UPDATE pizzakoe SET piilotus = 'Piilotettu'  WHERE id =?;
