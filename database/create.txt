@@ -42,13 +42,21 @@ select * from tayte;
 insert into tayte(taytenimi) values(?);
 
 
+////pizzan haku jos piilotus arvo 0
 
+SELECT * FROM pizzakoe WHERE piilotus = 0;
 
+////pizzan haku jos piilotus arvo 1
 
+SELECT * FROM pizzakoe WHERE piilotus = 1;
 
+--------pilotus
 
+UPDATE pizzakoe SET piilotus = 'Piilotettu'  WHERE id =?;
 
+-------esiin tuonti
 
+UPDATE pizzakoe SET piilotus = null WHERE id =?
 
 
 
