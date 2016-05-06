@@ -4,7 +4,6 @@ public class KoriTuote {
 	private int id;
 	private String nimi;
 	private double hinta;
-	private static int maara;
 	private double summa;
 
 	// Constructor
@@ -50,17 +49,6 @@ public class KoriTuote {
 
 
 
-	public static int getMaara() {
-		return maara;
-	}
-
-
-
-	public static void setMaara(int maara) {
-		KoriTuote.maara = maara;
-	}
-
-
 
 	public double getSumma() {
 		return summa;
@@ -74,10 +62,7 @@ public class KoriTuote {
 
 
 
-	public void vahennaLukumaaraa(int i) {
-		maara--;
 
-	}
 
 	public static void remove(KoriTuote tuote) {
 
@@ -85,9 +70,6 @@ public class KoriTuote {
 
 
 
-	public void lisaaLukumaara() {
-		
-		
-	}
+
 	
 }

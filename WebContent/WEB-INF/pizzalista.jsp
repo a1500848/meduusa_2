@@ -42,7 +42,7 @@
 
 	<div class="lista">
 		<hr>
-		<h3>Pizzalista</h3>
+		<h3>Menú</h3>
 		<hr>
 		<ul class="nav nav-pills">
 

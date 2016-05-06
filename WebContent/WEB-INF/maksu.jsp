@@ -83,13 +83,7 @@
 		          			<th>Valitut tuotteet</th>
 		          			<td>${itemi.nimi }</td>
 		          		</tr>
-		          			<tr>
 		          			
-		          			
-		          			<th>Määrä</th>
-		          			<td>${itemi.maara }</td>
-		          			
-		          			</tr>
 		          		<tr>
 		          			<th>${itemi.hinta }</th>
 		          			<td>Yhteishinta</td>
@@ -97,6 +91,7 @@
 		          				
 			</c:forEach>
 		          	</table>
+		         
 		          		     
 		          		     <FORM ACTION="tilausvahvistus.jsp" METHOD="post">
              <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>

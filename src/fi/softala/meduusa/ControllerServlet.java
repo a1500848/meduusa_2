@@ -85,6 +85,7 @@ public class ControllerServlet extends HttpServlet {
 		Tayte tayte = new Tayte();
 		tayte.setTaytenimi(tayteNimi);
 		pDao.lisaaTayte(tayte);
+		response.sendRedirect("adminController");
 		}
 		
 		if (tuoteNimi != null && tuoteHinta != null) {

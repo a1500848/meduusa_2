@@ -34,7 +34,7 @@ public class KoriServlet extends HttpServlet {
 		String pizzaid = request.getParameter("id");
 		String pizzanimi = request.getParameter("nimi");
 		String pizzahinta = request.getParameter("hinta");
-		String pizzamaara = request.getParameter("maara");
+		
 
 		String poista = request.getParameter("poista");
 
@@ -44,8 +44,7 @@ public class KoriServlet extends HttpServlet {
 			session = request.getSession(true);
 		}
 		KoriTuote korituote = new KoriTuote();
-		if (pizzaid != null && pizzanimi != null && pizzahinta != null
-				&& pizzamaara != null) {
+		if (pizzaid != null && pizzanimi != null && pizzahinta != null) {
 			ArrayList<KoriTuote> ostoskori = null;
 			if (session.getAttribute("kori") == null) {
 				ostoskori = new ArrayList<KoriTuote>();
@@ -70,9 +69,7 @@ public class KoriServlet extends HttpServlet {
 						return;
 					}
 					if (ostoskori.get(i).getId() == tilausint) {
-						for (int j = 0; j < Integer.parseInt(pizzamaara); j++) {
-							ostoskori.get(i).lisaaLukumaara();
-						}
+						
 						pizzaloyty = true;
 						i = ostoskori.size();
 					}

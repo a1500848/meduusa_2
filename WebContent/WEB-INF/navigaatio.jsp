@@ -23,7 +23,7 @@
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
 				<li><a href="index.jsp">Etusivu <span class="sr-only">(current)</span></a></li>
-				<li><a href="./controller">Pizzalista</a></li>
+				<li><a href="./controller">Menú</a></li>
 				<li><a href="yhteystiedot.jsp">Yhteystiedot</a></li>
 				<c:choose>
 					<c:when test="${ kayttaja.sahkoposti == 'admin@meduusa.fi' }">
