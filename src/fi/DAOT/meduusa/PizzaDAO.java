@@ -190,7 +190,7 @@ public class PizzaDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid)";
+			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte, p.piilotus FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid)";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 			
@@ -202,6 +202,7 @@ public class PizzaDAO {
 				String tuoteHinta = resultset.getString("hinta");
 				String tayteId = resultset.getString("tayteid");
 				String tayte = resultset.getString("tayte");
+				String piilotus = resultset.getString("piilotus");
 
 				boolean pizzaloytyi = false;
 
@@ -225,6 +226,14 @@ public class PizzaDAO {
 					taytteet.add(tayteolio);
 					Tuote tuote = new Tuote(Integer.parseInt(tuoteId),
 							tuoteNimi, Double.parseDouble(tuoteHinta), taytteet);
+					int piilo = 0;
+					if (piilotus != null && Integer.parseInt(piilotus) == 1) {
+						piilo = 1;
+					}
+					else if (piilotus == null) {
+						piilo = 2;
+					}
+					tuote.setPiilotus(piilo);
 					tuotteet.add(tuote);
 				}
 

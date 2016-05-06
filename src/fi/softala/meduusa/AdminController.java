@@ -61,13 +61,14 @@ public class AdminController extends HttpServlet {
 				// Setataan lista-attribuutti
 				request.setAttribute("lista", lista);
 				request.setAttribute("taytteet", tayte);
+				
+				System.out.println(lista.size() + "moi");
 
+				System.out.println("MOROO");
 				RequestDispatcher rd = request
 						.getRequestDispatcher("WEB-INF/adminlista.jsp");
 
 				rd.forward(request, response);
-
-				wout.close();
 			}
 
 			else {

@@ -67,15 +67,28 @@
 									<div class="checkbox-inline text-muted"></div>
 									</form>
 									<form action="adminController" method="post">
-									<div class="lisaaAdmin">
 									<input type="hidden" name="id" value="${Pizza.id }">
-										<button type='submit' value='piilotaPizza'
-											class="btn btn-success" name="action">Piilota</button>
-									</div>
+									<c:choose>
+									<c:when test="${Pizza.piilotus == 1 }">
 									<div class="lisaaAdmin">
 										<button type='submit' value='tuoPizza'
 											class="btn btn-success" name="action">Näytä</button>
 									</div>
+									</c:when>
+									<c:when test="${Pizza.piilotus == 0 }">
+									<div class="lisaaAdmin">
+									<button type='submit' value='piilotaPizza'
+											class="btn btn-success" name="action">Piilota</button>
+									</div>
+									</c:when>
+									<c:otherwise>
+									<div class="lisaaAdmin">
+									<button type='submit' value='tuoPizza'
+											class="btn btn-success" name="action">Tuo menuun</button>
+									</div>
+									</c:otherwise>
+									</c:choose>
+
 								</div>
 
 								<div class="panel-body">
