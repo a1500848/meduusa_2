@@ -25,7 +25,7 @@
 				</ul>
 				<div id="myTabContent" class="tab-content">
 					<div class="tab-pane active in" id="login">
-						
+						<form method="post" action="Kirjautuminen">
 							<div class="form-group">
 								<label for="exampleInputEmail1">Sähköposti</label> <input
 									type="email" class="form-control" name="sahkoposti"
@@ -42,7 +42,7 @@
 					</div>
 
 					<div class="tab-pane fade" id="create">
-						
+						<form method="post" action="rekisteroidy">
 							<div class="form-group">
 								<label for="name">Etunimi</label> <input type="name"
 									class="form-control" name="enimi" placeholder="Etunimi">
