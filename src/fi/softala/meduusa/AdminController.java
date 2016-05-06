@@ -131,6 +131,7 @@ public class AdminController extends HttpServlet {
 				idint = Integer.parseInt(id);
 			}
 			pDao.piilotaTuote(idint);
+			response.sendRedirect("adminController");
 		} else if (action != null && action.equals("tuoPizza")){
 			String id = request.getParameter("id");
 			int idint = 0;
@@ -138,6 +139,7 @@ public class AdminController extends HttpServlet {
 				idint = Integer.parseInt(id);
 			}
 			pDao.tuoTuote(idint);
+			response.sendRedirect("adminController");
 		}
 		
 		else {
