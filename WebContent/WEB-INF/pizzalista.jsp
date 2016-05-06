@@ -44,11 +44,7 @@
 		<hr>
 		<h3>Menú</h3>
 		<hr>
-		<ul class="nav nav-pills">
-
-			<li class="active"><a href="./controller">Pizzat</a></li>
-			<li><a href="#tayte" data-toggle="modal">Täytteet</a></li>
-		</ul>
+		
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-12">

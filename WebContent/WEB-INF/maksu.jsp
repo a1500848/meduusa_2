@@ -74,7 +74,7 @@
 		          	
 		          	<table>
 		          	
-
+<div class="tilaus">
 			<c:forEach items="${kori}" var="itemi">
 				
 				
@@ -91,7 +91,7 @@
 		          				
 			</c:forEach>
 		          	</table>
-		         
+</div>		         
 		          		     
 		          		     <FORM ACTION="tilausvahvistus.jsp" METHOD="post">
              <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>

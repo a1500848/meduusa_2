@@ -54,9 +54,8 @@
 					<c:forEach items="${lista}" var="Pizza">
 						<div class="panel panel-default">
 
-
-							<form action="koriservlet" method="get">
-								<div class="panel-heading">
+							<div class="panel-heading">
+									<form action="koriservlet" method="get">
 									<strong>${Pizza.nimi}</strong>
 									<p>
 										<fmt:formatNumber type="currency" currencySymbol="eur"
@@ -66,7 +65,14 @@
 									<div class="checkbox-inline text-muted"></div>
 									<div class="checkbox-inline text-muted"></div>
 									</form>
-									<form action="adminController" method="post">
+									
+
+								</div>
+
+								<div class="panel-body">
+									<c:forEach items="${Pizza.taytteet }" var="pizzantaytteet">
+ 	${pizzantaytteet.taytenimi }, </c:forEach>
+ 	<form action="adminController" method="post">
 									<input type="hidden" name="id" value="${Pizza.id }">
 									<c:choose>
 									<c:when test="${Pizza.piilotus == 1 }">
@@ -88,14 +94,9 @@
 									</div>
 									</c:otherwise>
 									</c:choose>
-
+									</form>
 								</div>
-
-								<div class="panel-body">
-									<c:forEach items="${Pizza.taytteet }" var="pizzantaytteet">
- 	${pizzantaytteet.taytenimi }, </c:forEach>
-								</div>
-							</form>
+							
 
 
 						</div>
@@ -129,8 +130,7 @@
 							<input type="text" name="tuoteNimi" placeholder="Tuotteen nimi" />
 							<br> <br> <input type="text" name="tuoteHinta"
 								placeholder="Tuotteen hinta" /> <br></br>
-							<button type='submit' name="action" value="lisaapizza">Lähetä
-								tuotteen tiedot</button>
+							
 						</div>
 
 						<!-- Adminin valitse täyte uuteen pizzaan kenttä -->
@@ -148,6 +148,8 @@
 								</div>
 							</c:forEach>
 							<br>
+							<button type='submit' name="action" value="lisaapizza">Lähetä
+								tuotteen tiedot</button>
 						</div>
 
 					</form>
