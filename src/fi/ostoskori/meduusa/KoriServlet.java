@@ -92,7 +92,7 @@ public class KoriServlet extends HttpServlet {
 			}
 	// tuotteeen poisto
 			
-			ostoskori.remove(korituote);
+			
 
 			session.setAttribute("kori", ostoskori); // Tallenna sessioon
 

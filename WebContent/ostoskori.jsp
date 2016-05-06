@@ -46,26 +46,24 @@
 									<div class="ostoskori">
 										<h2>${itemi.nimi }</h2>
 										Hinta: ${itemi.hinta }<br> <br> <br> <a
-											href="?poista=${itemi.id }">Poista</a> <br>
-
-
+											href="?poista=${itemi.id }">Poista</a> <br> <br>Yhteishinta:
+										<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
 									</div>
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						<br>Yhteishinta:
-						<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+
 						</br>
 						<p></p>
 						<h3>
 							<a href="checkout">Tilaukseen</a>
 						</h3>
-						
 
 
-							<h3>
-								<a href="controller">Hae lis‰‰ pizzoja</a>
-							</h3>
+
+						<h3>
+							<a href="controller">Hae lis‰‰ pizzoja</a>
+						</h3>
 						</form>
 
 					</div>
