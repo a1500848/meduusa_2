@@ -90,8 +90,9 @@ public class KoriServlet extends HttpServlet {
 			for (int i = 0; i < ostoskori.size(); i++) {
 				summa += ostoskori.get(i).getSumma();
 			}
-
-			// Korin tyhjennys tilaksen jälkeen
+	// tuotteeen poisto
+			
+			
 
 			session.setAttribute("kori", ostoskori); // Tallenna sessioon
 
