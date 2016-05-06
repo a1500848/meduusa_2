@@ -241,10 +241,21 @@ height: auto;
 	font-size: 20px;
 }
 
-.modalnappi:hover{
-	background: #5bc0de !important;
-	border: white;
+.nappi:focus {
+	outline: none !important;
 }
+
+.tab-pane {
+	background: rgba(255,219,190, 1) !important;
+	border: none !important;
+}
+
+.well {
+	background: rgba(255,219,190, 1) !important;
+}
+
+
+
 
 
 
