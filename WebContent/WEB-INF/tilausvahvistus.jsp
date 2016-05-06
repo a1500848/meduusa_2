@@ -41,6 +41,7 @@
 <div class="lista">
 	<div class="container-fluid">
 			<div class="row">
+				<div class="tilaus">
 				<div class="col-md-12">
 					<h2>Tilausvahvistus</h2>
 				</div>
@@ -106,6 +107,7 @@
 				</div>
 				<div class="col-md-12">
 					<a href="index.jsp">Takaisin etusivulle</a>
+				</div>
 				</div>
 			</div>
 		</div>
