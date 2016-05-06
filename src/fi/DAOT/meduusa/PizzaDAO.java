@@ -134,7 +134,7 @@ public class PizzaDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid) WHERE piilotus = 0";
+			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid) WHERE piilotus = 0 ORDER BY nimi ASC;";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 			
@@ -190,7 +190,7 @@ public class PizzaDAO {
 		try {
 
 			// suoritetaan haku
-			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte, p.piilotus FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid)";
+			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte, p.piilotus FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid) ORDER BY nimi ASC";
 			Statement haku = yhteys.createStatement();
 			ResultSet resultset = haku.executeQuery(sql);
 			
