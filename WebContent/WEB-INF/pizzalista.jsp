@@ -71,7 +71,7 @@
 											type="hidden" name="hinta" value="${Pizza.hinta }">
 										<button type='submit' value='Lis‰‰ ostoskoriin'
 											class="btn btn-success">Lis‰‰</button>
-										<input type='text' size='3' value='0' name="maara" />
+									
 									</div>
 								</div>
 								<div class="panel-body">

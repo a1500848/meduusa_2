@@ -3,79 +3,91 @@ package fi.ostoskori.meduusa;
 public class KoriTuote {
 	private int id;
 	private String nimi;
-	private String hinta;
+	private double hinta;
 	private static int maara;
+	private double summa;
 
 	// Constructor
 	public KoriTuote() {
 
 	}
 
-	// Constructor
-	public KoriTuote(int id, String nimi, String hinta, int maara) {
-		this.id = id;
-		this.nimi = nimi;
-		this.hinta = hinta;
-		this.maara = maara;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public void setNimi(String nimi) {
-		this.nimi = nimi;
-	}
-
-	public void setHinta(String hinta) {
-		this.hinta = hinta;
-	}
+	
 
 	public int getId() {
 		return id;
 	}
 
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+
+
 	public String getNimi() {
 		return nimi;
 	}
 
-	public String getHinta() {
+
+
+	public void setNimi(String nimi) {
+		this.nimi = nimi;
+	}
+
+
+
+	public double getHinta() {
 		return hinta;
 	}
 
-	public int getMaara() {
+
+
+	public void setHinta(double hinta) {
+		this.hinta = hinta;
+	}
+
+
+
+	public static int getMaara() {
 		return maara;
 	}
 
-	public void setMaara(int maara) {
-		this.maara = maara;
+
+
+	public static void setMaara(int maara) {
+		KoriTuote.maara = maara;
 	}
 
-	
-	
-	public void lisaaLukumaara() {
-		maara++;
 
-	}
 
-	
 	public double getSumma() {
-		
-		return 0;
+		return summa;
 	}
+
+
+
+	public void setSumma(double summa) {
+		this.summa = summa;
+	}
+
+
 
 	public void vahennaLukumaaraa(int i) {
 		maara--;
-		
+
 	}
 
 	public static void remove(KoriTuote tuote) {
-		// TODO Auto-generated method stub
+
+	}
+
+
+
+	public void lisaaLukumaara() {
+		
 		
 	}
-
 	
-
-	
-	}
-
+}

@@ -29,40 +29,39 @@ public class KoriServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
-//Testaus kommentti		
+		// Testaus kommentti
 
-			String pizzaid = request.getParameter("id");
-			String pizzanimi = request.getParameter("nimi");
-			String pizzahinta = request.getParameter("hinta");
-			String pizzamaara = request.getParameter("maara");
-			
-			String poista = request.getParameter("poista");
+		String pizzaid = request.getParameter("id");
+		String pizzanimi = request.getParameter("nimi");
+		String pizzahinta = request.getParameter("hinta");
+		String pizzamaara = request.getParameter("maara");
 
-			// hae nykyinen httpsession jos ei ole tee uusi
-			HttpSession session = request.getSession(false);
-			if (session == null) {
-				session = request.getSession(true);
-			}
-			
-			
-			if (pizzaid != null && pizzanimi != null && pizzahinta != null && pizzamaara != null) {
+		String poista = request.getParameter("poista");
+
+		// hae nykyinen httpsession jos ei ole tee uusi
+		HttpSession session = request.getSession(false);
+		if (session == null && session.getAttribute("kori") == null) {
+			session = request.getSession(true);
+		}
+		KoriTuote korituote = new KoriTuote();
+		if (pizzaid != null && pizzanimi != null && pizzahinta != null
+				&& pizzamaara != null) {
 			ArrayList<KoriTuote> ostoskori = null;
 			if (session.getAttribute("kori") == null) {
 				ostoskori = new ArrayList<KoriTuote>();
+
+				String id = request.getParameter("tuote");
+				korituote.setId(Integer.parseInt(id));
+				korituote.setHinta(Double.parseDouble(pizzahinta));
 			} else {
 				ostoskori = (ArrayList<KoriTuote>) session.getAttribute("kori");
 			}
-			if (ostoskori == null) { // ei koria, tee yksi
-				ostoskori = new ArrayList<KoriTuote>();
-				KoriTuote korituote = new KoriTuote();
-				String id = request.getParameter("tuote");
-				korituote.setId(Integer.parseInt(id));
-			}
-			
+
 			Boolean pizzaloyty = false;
-			
+			double summa = 0;
 			if (ostoskori.size() > 0) {
 				for (int i = 0; i < ostoskori.size(); i++) {
+					summa = summa + korituote.getHinta();
 					int tilausint = -1;
 					try {
 						tilausint = Integer.valueOf(pizzaid);
@@ -79,56 +78,44 @@ public class KoriServlet extends HttpServlet {
 					}
 				}
 			}
-			
+
 			if (pizzaloyty == false) {
 
-			KoriTuote uusituote = new KoriTuote(Integer.parseInt(pizzaid),
-					pizzanimi, pizzahinta, Integer.parseInt(pizzamaara));
+				KoriTuote uusituote = new KoriTuote();
+				uusituote.setHinta(Double.parseDouble(pizzahinta));
+				uusituote.setNimi(pizzanimi);
 
-			ostoskori.add(uusituote);
-			
+				ostoskori.add(uusituote);
 			}
-			
-			// tuotteen poisto korista
-			
-			{
-				KoriTuote tuote = new KoriTuote();
-				if (tuote.getMaara() > 1) {
-					tuote.vahennaLukumaaraa(-1);
-				} else {
-					KoriTuote.remove(tuote);
-				}
+
+			// Yhteissumma
+
+			for (int i = 0; i < ostoskori.size(); i++) {
+				summa += ostoskori.get(i).getSumma();
 			}
-			
-			//Yhteissumma
-			
-			
+
+			// Korin tyhjennys tilaksen jälkeen
 
 			session.setAttribute("kori", ostoskori); // Tallenna sessioon
-			
-			 // Sessionhallinta / kello
-			 HttpSession sessio = request.getSession();
-			 Date aloitusaika = new Date();
-			 sessio.setAttribute("kello", aloitusaika);
+
+			// Sessionhallinta / kello
+			HttpSession sessio = request.getSession();
 
 			// Setataan lista-attribuutti
-			 request.setAttribute("kori", ostoskori);
-		
-			 response.sendRedirect("koriservlet");
-			
-			}
-			else if (poista != null) {
-				RequestDispatcher rd = request
-						 .getRequestDispatcher("ostoskori.jsp");
-						 rd.forward(request, response);
-			}
-			else {
-				 RequestDispatcher rd = request
-						 .getRequestDispatcher("ostoskori.jsp");
-						 rd.forward(request, response);
-			}
-	}
+			request.setAttribute("kori", ostoskori);
+			request.setAttribute("ostoskorisumma", summa);
+			response.sendRedirect("koriservlet");
 
+		} else if (poista != null) {
+			RequestDispatcher rd = request
+					.getRequestDispatcher("ostoskori.jsp");
+			rd.forward(request, response);
+		} else {
+			RequestDispatcher rd = request
+					.getRequestDispatcher("ostoskori.jsp");
+			rd.forward(request, response);
+		}
+	}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

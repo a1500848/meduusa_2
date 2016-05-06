@@ -59,13 +59,7 @@
 		          			<th>Tuotteet</th>
 		          			<td>${itemi.nimi }</td>
 		          		</tr>
-		          			<tr>
-		          			
-		          			
-		          			<th>Määrä</th>
-		          			<td>${itemi.maara }</td>
-		          			
-		          			</tr>
+		          		
 		          		<tr>
 		          			
 		          			<td>Hinta</td>
@@ -97,6 +91,11 @@
 						<tr>
 							<td>Asiakas puhelinnumero:</td>
 							<td><% out.println(request.getParameter("cust_puhelin")); %></td>
+							
+						</tr>
+						<tr>
+							<td>Maksutapa:</td>
+							<td><%  String b=request.getParameter("maksu"); %></td>
 						</tr>
 					</table>
 

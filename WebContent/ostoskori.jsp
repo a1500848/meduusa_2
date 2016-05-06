@@ -45,26 +45,27 @@
 								<c:forEach items="${kori}" var="itemi">
 									<div class="ostoskori">
 										<h2>${itemi.nimi }</h2>
-										Hinta: ${itemi.hinta }<br> M‰‰r‰: ${itemi.maara }<br>
-										<br> <a href="?poista=${itemi.id }">Poista</a> <br>
-										
+										Hinta: ${itemi.hinta }<br> <br> <br> <a
+											href="?poista=${itemi.id }">Poista</a> <br>
+
 
 									</div>
 								</c:forEach>
 							</c:otherwise>
 						</c:choose>
-						YhteisHinta:
-										<fmt:formatNumber value="${ostoskori.sum}" type="currency" />
+						<br>Yhteishinta:
+						<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+						</br>
 						<p></p>
 						<h3>
 							<a href="checkout">Tilaukseen</a>
 						</h3>
-						<form method='get' action='controller'>
+						
 
 
-							<input type='submit' value='Hae lis‰‰ pizzoja...'>
-
-
+							<h3>
+								<a href="controller">Hae lis‰‰ pizzoja</a>
+							</h3>
 						</form>
 
 					</div>
@@ -97,7 +98,7 @@
 		</div>
 	</div>
 
-<c:import url="/WEB-INF/modal.jsp"></c:import>
+	<c:import url="/WEB-INF/modal.jsp"></c:import>
 
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

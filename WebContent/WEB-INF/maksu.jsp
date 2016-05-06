@@ -68,6 +68,18 @@
 		              <label>Puhelinnumero</label>
 		              <input type='text' class="form-control" name='cust_puhelin' />
 		          	</div>
+		          	<FORM ACTION="tilausvahvistus.jsp" METHOD="post">
+             <INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>
+             K‰teinen
+            <BR>
+            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu2">
+            Pankkikorrti
+            <BR>
+            <INPUT TYPE="radio" NAME="maksu" VALUE="maksu3">
+            Verkkomaksu
+            <BR>
+            
+        </FORM>
 		          	
 		          	
 		          	<div style="background: #FFF;">
@@ -83,22 +95,23 @@
 		          			<th>Valitut tuotteet</th>
 		          			<td>${itemi.nimi }</td>
 		          		</tr>
-		          			<tr>
 		          			
-		          			
-		          			<th>M‰‰r‰</th>
-		          			<td>${itemi.maara }</td>
-		          			
-		          			</tr>
 		          		<tr>
 		          			<th>${itemi.hinta }</th>
-		          			<td>Yhteishinta</td>
+		          			<td>hinta</td>
 		          		</tr>
+		          		
 		          				
 			</c:forEach>
+			<tr>
+		          			<th>${ostoskorisumma }</th>
+		          			<td>Yhteishinta</td>
+		          		</tr>
+		          		
 		          	</table>
 		          	</div>
-		          	
+		          
+		          		
 		          <div class="form-group col-lg-12">
 		            <input type="hidden" name="save" value="contact">
 		            <button type="submit" class="btn btn-default">Maksa tilaus</button>
