@@ -43,6 +43,7 @@ body {
 .page-header{
   text-align: center;
   color: white;
+  margin-top: 22px;
   border-bottom:
 }
 /* Etusivun Otsikko! */
@@ -56,8 +57,9 @@ body {
 
 /* etusivun kuvat */
 img {
-  width:600px;
-  height:400px;
+  width:800px;
+  height:600px;
+  border-radius: 5px;
 }
 
 /* yhteystiedot.html pohja!! (????etusivun kuvien row???)*/
@@ -195,22 +197,25 @@ hr {
 /* slideshow*/
 .main {
   position:relative;
-  width: 700px;
-  border: 1px solid #987161;
+  width: 860px;
+  border:none;
   border-radius: 5px;
   max-width: 100%;
-  height: auto;
+  height: 650px;
+  max-height: auto;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
   padding-top: 15px;
-  background-color: rgba(255,219,190, 0.8);
+  background-color: rgba(000,000,000, 0.5);
+  box-shadow:-3px 0px 35px 20px rgba(000,000,000, 0.5);  
 }
 
 .main .slideshow {
   position: relative;
-  margin-left: 9%;
-  margin-right: 9%;
+  margin-left: 4%;
+  margin-right: 2%;
+  margin-bottom: 4%;
 }
 
 .main img {

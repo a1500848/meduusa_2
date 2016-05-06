@@ -70,8 +70,7 @@
 
           </script>
         </div>
-        <h2> Tervetuloa Castello &amp; Fioriin!</h2>
-        <p>Meiltä saat maan parhaat pizzat!</p>
+        
       </div>
     </div>
   </div>
