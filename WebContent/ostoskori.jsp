@@ -35,38 +35,42 @@
 			<div class="row">
 				<div class="box">
 					<div class="col-md-12">
-						<c:choose>
-							<c:when test="${empty kori}">
-	Ostoskorisi on tyhj‰
-	</c:when>
-							<c:otherwise>
+						<div class="ostoskori_yla">
+							<c:choose>
+								<c:when test="${empty kori}">
+									<h1>Ostoskorisi on tyhj‰</h1>
+								</c:when>
+								<c:otherwise>
 
 
-								<c:forEach items="${kori}" var="itemi">
-									<div class="ostoskori">
-										<h2>${itemi.nimi }</h2>
-										Hinta: ${itemi.hinta }<br> <br> <br> <a
-											href="?poista=${itemi.id }">Poista</a> <br>
-									</div>
-								</c:forEach>
-							</c:otherwise>
-						</c:choose>
+									<c:forEach items="${kori}" var="itemi">
+										<div class="ostoskori">
+											<h2>${itemi.nimi }</h2>
+											<h3>Hinta: ${itemi.hinta }</h3><br> <br> <br> <a
+												href="?poista=${itemi.id }">Poista</a> <br>
+										</div>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</div>
+						<div class="ostoskori_ala">
+							</br>
+							<p></p>
+							<h3>
+								<br>Yhteishinta:
+								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+								<br>
+								<br> <a href="checkout">Tilaukseen</a>
+							</h3>
 
-						</br>
-						<p></p>
-						<h3>
-						<br>Yhteishinta:
-						<fmt:formatNumber value="${ostoskorisumma}" type="currency" /><br>
-							<a href="checkout">Tilaukseen</a>
-						</h3>
 
 
+							<h3>
+								<a href="controller">Hae lis‰‰ pizzoja</a>
+							</h3>
+							</form>
 
-						<h3>
-							<a href="controller">Hae lis‰‰ pizzoja</a>
-						</h3>
-						</form>
-
+						</div>
 					</div>
 				</div>
 			</div>

@@ -295,7 +295,19 @@ height: auto;
 .tilaus {
 	color:white;
 }
-
+.ostoskori_yla h2 {
+	color: white;
+}
+.ostoskori_yla h3 {
+	color:white;
+}
+.ostoskori_yla h1{
+	text-align:center;
+	color:white;
+}
+.ostoskori_ala h3 {
+	color:white;
+}
 
 
 
