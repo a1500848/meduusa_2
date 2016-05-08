@@ -48,7 +48,7 @@
 					</c:when>
 
 					<c:otherwise>
-						<li><a href="${pageContext.request.contextPath}/Kirjautuminen?logout=true" class="btn btn-info btn-lg modalnappi">Kirjaudu
+						<li><a href="${pageContext.request.contextPath}/Kirjautuminen?logout=true" class="btn btn-info btn-lg nappi">Kirjaudu
 								ulos</a></li>
 					</c:otherwise>
 				</c:choose>
