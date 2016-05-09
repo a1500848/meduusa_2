@@ -63,18 +63,26 @@
 		          		
 		          		<tr>
 		          			
-		          			<td>Hinta</td>
-		          			<th>${itemi.hinta }</th>
+		          			<th>Hinta</th>
+		          			<td>${itemi.hinta }</td>
 		          		
 		          		</tr>
 		          		
-		          		<tr>
-		          			<th>${ostoskorisumma }</th>
-		          			<td>Yhteishinta</td>
-		          			
-		          		</tr>
-		          				
+		          		
 			</c:forEach>
+			<c:choose>
+								<c:when test="${not empty ostoskorisumma }">
+								<tr>
+								<th>Ostoskorin yhteishinta</th>
+										<td>${ostoskorisumma }</td>
+										
+
+									</tr>
+								</c:when>
+								<c:otherwise>
+								<td>Ostoskori on tyhjä</td>
+								</c:otherwise>
+								</c:choose>
 		          	</table>
 
 

@@ -38,13 +38,17 @@
 			<ul class="nav navbar-nav navbar-right">
 
 
-				<li><a href="ostoskori.jsp"><span
+				<li><a href="<c:url value="/koriservlet"></c:url>"><span
 						class="glyphicon glyphicon-euro" aria-hidden="true"></span>
-						Ostoskori</a></li>
+						Ostoskori 
+						<c:if test="${not empty ostoskorisumma && ostoskorisumma > 0}">
+								<span class="ostoskorihinta">${ostoskorisumma } &euro;</span>
+								</c:if></a></li>
+								
 				<c:choose>
 					<c:when test="${empty kayttaja }">
-						<button type="button" class="btn btn-info btn-lg nappi"
-					data-toggle="modal" data-target="#myModal">Kirjaudu sis‰‰n</button>
+						<li><a class="btn btn-info btn-lg nappi"
+					data-toggle="modal" data-target="#myModal">Kirjaudu sis‰‰n</a></li>
 					</c:when>
 
 					<c:otherwise>

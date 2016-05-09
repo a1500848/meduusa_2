@@ -104,11 +104,12 @@ public class KoriServlet extends HttpServlet {
 
 		double summa = 0;
 		for (int i = 0; i < ostoskori.size(); i++) {
-			summa += ostoskori.get(i).getSumma();
+			summa += ostoskori.get(i).getHinta();
 		}
 
 		// Setataan lista-attribuutti
 		session.setAttribute("kori", ostoskori);
+		session.setAttribute("ostoskorisumma", summa);
 		request.setAttribute("kori", ostoskori);
 		request.setAttribute("ostoskorisumma", summa);
 
