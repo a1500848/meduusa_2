@@ -108,10 +108,10 @@
 								</c:otherwise>
 								</c:choose>
 						</table>
-						<INPUT TYPE="radio" NAME="maksu" VALUE="maksu" CHECKED>
-				Käteinen <BR> <INPUT TYPE="radio" NAME="maksu" VALUE="maksu2">
-				Pankkikortti <BR> <INPUT TYPE="radio" NAME="maksu"
-					VALUE="maksu3"> Verkkomaksu <BR>
+						
+				<input type="checkbox" name="id" value="Käteinen"> Käteinen<BR>
+				<input type="checkbox" name="id" value="Pankkikorti"> Pankkikortti<BR>
+				<input type="checkbox" name="id" value="Verkkopankki"> Verkkopankki<BR>
 				</div>
 
 
