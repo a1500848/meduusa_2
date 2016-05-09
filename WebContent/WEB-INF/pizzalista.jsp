@@ -6,6 +6,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 
 
@@ -71,8 +72,10 @@
 									</div>
 								</div>
 								<div class="panel-body">
-									<c:forEach items="${Pizza.taytteet }" var="pizzantaytteet">
- 	${pizzantaytteet.taytenimi }, </c:forEach>
+									<c:forEach items="${Pizza.taytteet}" var="pizzantaytteet" varStatus="status">
+ 	${pizzantaytteet.taytenimi }<c:if test="${fn:length(Pizza.taytteet) > status.count }">, </c:if>
+ 	
+ 	</c:forEach>
 								</div>
 							</form>
 
