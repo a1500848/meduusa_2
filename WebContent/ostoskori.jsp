@@ -46,15 +46,15 @@
 									<c:forEach items="${kori}" var="itemi" varStatus="status">
 										<div class="ostoskori">
 											<h2>${itemi.nimi }</h2>
-											<h3>Hinta: <fmt:formatNumber value= "${itemi.hinta }" type="currency" currencySymbol="eur"/></h3><br> <br> <br> <a
+											<h3>Hinta: <fmt:formatNumber value="${itemi.hinta } " type="currency" currencySymbol="eur"/></h3><br> <br> <br> <a
 												href="?poista=${status.index }">Poista</a> <br>
 										</div>
 										
-								
-									</c:forEach>
-											<br>Yhteishinta:
-								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+									
 								<br>
+									</c:forEach>
+										<br>Yhteishinta:
+								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
 								</c:otherwise>
 							</c:choose>
 						</div>
