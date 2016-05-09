@@ -53,8 +53,8 @@
 									
 								<br>
 									</c:forEach>
-										<br>Yhteishinta:
-								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+										<h1><br>Yhteishinta:
+								<fmt:formatNumber value="${ostoskorisumma}" type="currency" /></h1>
 								</c:otherwise>
 							</c:choose>
 						</div>
