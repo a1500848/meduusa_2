@@ -34,33 +34,29 @@ public class KoriServlet extends HttpServlet {
 		String pizzaid = request.getParameter("id");
 		String pizzanimi = request.getParameter("nimi");
 		String pizzahinta = request.getParameter("hinta");
-		
 
 		String poista = request.getParameter("poista");
 
 		// hae nykyinen httpsession jos ei ole tee uusi
-		HttpSession session = request.getSession(false);
-		if (session == null && session.getAttribute("kori") == null) {
-			session = request.getSession(true);
-		}
-		KoriTuote korituote = new KoriTuote();
-		if (pizzaid != null && pizzanimi != null && pizzahinta != null) {
-			ArrayList<KoriTuote> ostoskori = null;
-			if (session.getAttribute("kori") == null) {
-				ostoskori = new ArrayList<KoriTuote>();
+		HttpSession session = request.getSession(true);
 
-				String id = request.getParameter("tuote");
-				korituote.setId(Integer.parseInt(id));
-				korituote.setHinta(Double.parseDouble(pizzahinta));
-			} else {
-				ostoskori = (ArrayList<KoriTuote>) session.getAttribute("kori");
-			}
+		ArrayList<KoriTuote> ostoskori = null;
+
+		if (session.getAttribute("kori") == null) {
+			ostoskori = new ArrayList<KoriTuote>();
+		} else {
+			ostoskori = (ArrayList<KoriTuote>) session.getAttribute("kori");
+		}
+
+		if (pizzaid != null && pizzanimi != null && pizzahinta != null) {
+			KoriTuote korituote = new KoriTuote();
+			String id = request.getParameter("tuote");
+			korituote.setId(Integer.parseInt(id));
+			korituote.setHinta(Double.parseDouble(pizzahinta));
 
 			Boolean pizzaloyty = false;
-			double summa = 0;
 			if (ostoskori.size() > 0) {
 				for (int i = 0; i < ostoskori.size(); i++) {
-					summa = summa + korituote.getHinta();
 					int tilausint = -1;
 					try {
 						tilausint = Integer.valueOf(pizzaid);
@@ -69,7 +65,7 @@ public class KoriServlet extends HttpServlet {
 						return;
 					}
 					if (ostoskori.get(i).getId() == tilausint) {
-						
+
 						pizzaloyty = true;
 						i = ostoskori.size();
 					}
@@ -85,34 +81,41 @@ public class KoriServlet extends HttpServlet {
 				ostoskori.add(uusituote);
 			}
 
-			// Yhteissumma
-
-			for (int i = 0; i < ostoskori.size(); i++) {
-				summa += ostoskori.get(i).getSumma();
-			}
-	// tuotteeen poisto
-			
-			
-
-			session.setAttribute("kori", ostoskori); // Tallenna sessioon
-
-			// Sessionhallinta / kello
-			HttpSession sessio = request.getSession();
-
-			// Setataan lista-attribuutti
-			request.setAttribute("kori", ostoskori);
-			request.setAttribute("ostoskorisumma", summa);
-			response.sendRedirect("koriservlet");
-
 		} else if (poista != null) {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("ostoskori.jsp");
-			rd.forward(request, response);
-		} else {
-			RequestDispatcher rd = request
-					.getRequestDispatcher("ostoskori.jsp");
-			rd.forward(request, response);
+			// tuotteeen poisto
+
+			System.out.println("Tultiin poistoon, poista = " + poista);
+			
+			System.out.println("Ennen poistoa:");
+			for (int i = 0; i < ostoskori.size(); i++) {
+				System.out.println(i + " - " + ostoskori.get(i).getNimi());
+			}
+
+			ostoskori.remove(Integer.parseInt(poista));
+			
+			System.out.println("Poiston jälkeen:");
+			for (int i = 0; i < ostoskori.size(); i++) {
+				System.out.println(i + " - " + ostoskori.get(i).getNimi());
+			}
+
 		}
+
+		// Yhteissumma
+
+		double summa = 0;
+		for (int i = 0; i < ostoskori.size(); i++) {
+			summa += ostoskori.get(i).getSumma();
+		}
+
+		// Setataan lista-attribuutti
+		session.setAttribute("kori", ostoskori);
+		request.setAttribute("kori", ostoskori);
+		request.setAttribute("ostoskorisumma", summa);
+
+		RequestDispatcher rd = request.getRequestDispatcher("ostoskori.jsp");
+		// response.sendRedirect("koriservlet");
+		rd.forward(request, response);
+
 	}
 
 	protected void doPost(HttpServletRequest request,

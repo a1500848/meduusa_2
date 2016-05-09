@@ -86,7 +86,14 @@
 		          			
 		          		<tr>
 		          			<th>${itemi.hinta }</th>
-		          			<td>Yhteishinta</td>
+		          			<td>Hinta</td>
+		          			
+		          		</tr>
+		          		
+		          		<tr>
+		          			<th>${ostoskorisumma }</th>
+		          			<td>Ostoskorin yhteishinta</td>
+		          			
 		          		</tr>
 		          				
 			</c:forEach>

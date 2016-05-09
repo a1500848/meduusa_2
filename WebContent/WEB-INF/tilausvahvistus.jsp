@@ -67,6 +67,12 @@
 		          			<th>${itemi.hinta }</th>
 		          		
 		          		</tr>
+		          		
+		          		<tr>
+		          			<th>${ostoskorisumma }</th>
+		          			<td>Yhteishinta</td>
+		          			
+		          		</tr>
 		          				
 			</c:forEach>
 		          	</table>

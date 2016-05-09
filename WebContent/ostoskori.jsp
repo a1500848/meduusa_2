@@ -43,11 +43,11 @@
 								<c:otherwise>
 
 
-									<c:forEach items="${kori}" var="itemi">
+									<c:forEach items="${kori}" var="itemi" varStatus="status">
 										<div class="ostoskori">
 											<h2>${itemi.nimi }</h2>
 											<h3>Hinta: ${itemi.hinta }</h3><br> <br> <br> <a
-												href="?poista=${itemi.id }">Poista</a> <br>
+												href="?poista=${status.index }">Poista</a> <br>
 										</div>
 									</c:forEach>
 								</c:otherwise>
