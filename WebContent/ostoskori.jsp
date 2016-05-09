@@ -23,6 +23,7 @@
 <link href="meta/custom.css" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=PT+Sans+Narrow'
 	rel='stylesheet' type='text/css'>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,57 +31,58 @@
 	<c:import url="/WEB-INF/navigaatio.jsp"></c:import>
 
 
-	<div class="stuff">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="box">
-					<div class="col-md-12">
-						<div class="ostoskori_yla">
-							<c:choose>
+
+<div class="container ostoskori">
+<c:choose>
 								<c:when test="${empty kori}">
 									<h1>Ostoskorisi on tyhj‰</h1>
 								</c:when>
 								<c:otherwise>
-
-
-									<c:forEach items="${kori}" var="itemi" varStatus="status">
-										<div class="ostoskori">
-											<h2>${itemi.nimi }</h2>
-											<h3>Hinta: <fmt:formatNumber value="${itemi.hinta } " type="currency" currencySymbol="eur"/></h3><br> <br> <br> <a
-												href="?poista=${status.index }">Poista</a> <br>
-										</div>
-										
-									
-								<br>
-									</c:forEach>
-										<h1><br>Yhteishinta:
-								<fmt:formatNumber value="${ostoskorisumma}" type="currency" currencySymbol="eur" /></h1>
-								</c:otherwise>
-							</c:choose>
-						</div>
-						<div class="ostoskori_ala">
-							</br>
-							<p></p>
-							<h3>
-								
-								<br> <a href="checkout">Tilaukseen</a>
-							</h3>
-
-
-
-							<h3>
-								<a href="controller">Hae lis‰‰ pizzoja</a>
-							</h3>
-							</form>
-
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
+								<c:forEach items="${kori}" var="itemi" varStatus="status">
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:50%">Tuote</th>
+							<th style="width:10%"></th>
+							<th style="width:8%"></th>
+							<th style="width:22%" class="text-center">Hinta</th>
+							<th style="width:10%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-th="Product">
+								<div class="row">
+									<div class="col-sm-12">
+										<h4 class="nomargin">${itemi.nimi }</h4>
+									</div>
+								</div>
+							</td>
+							<td data-th="Price"></td>
+							<td data-th="Quantity">
+							</td>
+							<td data-th="Subtotal" class="text-center"><fmt:formatNumber value="${itemi.hinta } " type="currency" currencySymbol="eur"/></td>
+							<td class="actions" data-th="">
+								<a href="?poista=${status.index }" class="btn btn-danger btn-sm">Poista</a>								
+							</td>
+						</tr>
+					</tbody>
+					</c:forEach>
+					<tfoot>
+						<tr class="visible-xs">
+							<td class="text-center"><strong>Total 1.99</strong></td>
+						</tr>
+						<tr>
+							<td><a href="controller" class="btn btn-warning"><i class="fa fa-angle-left"></i> Jatka ostoksia</a></td>
+							<td colspan="2" class="hidden-xs"></td>
+							<td class="hidden-xs text-center"><strong><p>Yhteishinta:</p><fmt:formatNumber value="${ostoskorisumma}" type="currency" currencySymbol="eur" /></strong></td>
+							<td><a href="checkout" class="btn btn-success btn-block">Tilaukseen <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tfoot>
+				</table>
+</div>
+</c:otherwise>
+</c:choose>
 
 
 	<!--Footer!-->

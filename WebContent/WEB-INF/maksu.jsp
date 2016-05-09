@@ -50,24 +50,24 @@
 					<form role="form" method="post">
 						<div class="row">
 							<div class="form-group col-lg-12">
-								<label>Nimi</label> <input type='text' class="form-control"
-									name='cust_nimi' />
+								<label >Nimi</label> <input type='text' class="form-control"
+									name='cust_nimi'placeholder="Nimi" value="<c:out value="${kayttaja.etunimi}"></c:out> <c:out value="${kayttaja.sukunimi}"></c:out>" />
 							</div>
 							<div class="form-group col-lg-12">
 								<label>Osoite</label> <input type='text' class="form-control"
-									name='cust_osoite' />
+									name='cust_osoite'placeholder="Osoite" />
 							</div>
 							<div class="form-group col-lg-12">
 								<label>Postinumero</label> <input type='text'
-									class="form-control" name='cust_numero' />
+									class="form-control" name='cust_numero'placeholder="Postinumero" />
 							</div>
 							<div class="form-group col-lg-12">
 								<label>Sähköposti</label> <input type='text'
-									class="form-control" name='cust_sahkoposti' />
+									class="form-control" name='cust_sahkoposti' placeholder="Sähköposti" value="<c:out value="${kayttaja.sahkoposti}"></c:out>" />
 							</div>
 							<div class="form-group col-lg-12">
 								<label>Puhelinnumero</label> <input type='text'
-									class="form-control" name='cust_puhelin' />
+									class="form-control" name='cust_puhelin' placeholder="Puhelinnumero" value='<c:out value="${kayttaja.puhelin }"></c:out>'/>
 							</div>
 						</div>
 
@@ -108,8 +108,7 @@
 								</c:otherwise>
 								</c:choose>
 						</table>
-						
-				<input type="checkbox" name="id" value="Käteinen"> Käteinen<BR>
+						<input type="checkbox" name="id" value="Käteinen"> Käteinen<BR>
 				<input type="checkbox" name="id" value="Pankkikorti"> Pankkikortti<BR>
 				<input type="checkbox" name="id" value="Verkkopankki"> Verkkopankki<BR>
 				</div>

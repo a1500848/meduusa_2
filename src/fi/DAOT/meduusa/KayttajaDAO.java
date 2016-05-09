@@ -81,9 +81,20 @@ public class KayttajaDAO extends HttpServlet {
 					.get("sahkoposti");
 			String idString = (String) sahkopostiMap
 					.get("id");
+			String etunimiKannasta = (String) sahkopostiMap
+					.get("etunimi");
+			String sukunimiKannasta = (String) sahkopostiMap
+					.get("sukunimi");
+			String puhelinKannasta = (String) sahkopostiMap
+					.get("puhelin");
+			
 			int id = Integer.parseInt(idString);
 			kayttaja.setSahkoposti(sahkopostiKannasta);
 			kayttaja.setId(id);
+			kayttaja.setEtunimi(etunimiKannasta);
+			kayttaja.setSukunimi(sukunimiKannasta);
+			kayttaja.setPuhelin(puhelinKannasta);
+			
 		}
 		yhteys.katkaise();
 
