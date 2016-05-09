@@ -32,10 +32,12 @@
 
 
 
-<div class="container ostoskori">
+<div class="container ostoskori center">
 <c:choose>
 								<c:when test="${empty kori}">
-									<h1>Ostoskorisi on tyhjä</h1>
+									<h1><span class="glyphicon glyphicon-shopping-cart"></span> Ostoskorisi on tyhjä <span class="glyphicon glyphicon-shopping-cart"></span></h1>
+									<h2>Lisää tuotteita ostoskoriin <a href='<c:url value="/controller"></c:url>'>Menústa</a></h2>
+									
 								</c:when>
 								<c:otherwise>
 								<c:forEach items="${kori}" var="itemi" varStatus="status">

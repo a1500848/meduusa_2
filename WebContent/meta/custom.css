@@ -174,11 +174,12 @@ iframe {
   background-color:#9d8674;
   color: white;
   text-align: center;
-  padding-left: 143px;
+  padding-left: 150px;
 }
 .panel-heading p {
   float: right;
   font-weight: bold;
+  padding-right: 10px;
 }
 .panel-body{
   background-color:#f3e3ca;
@@ -386,5 +387,14 @@ height: auto;
 .ostoskori {
 	background-color:white;
 }
-
+.ostoskori h1 {
+	text-align: center;
+}
+.ostoskori h2 {
+	text-align:center;
+	
+}
+.ostoskori span {
+	font-size: 25px;
+}
 

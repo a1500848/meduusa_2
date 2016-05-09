@@ -56,10 +56,7 @@
 							<form action="koriservlet" method="get">
 								<div class="panel-heading">
 									<strong>${Pizza.nimi}</strong>
-									<p>
-										<fmt:formatNumber type="currency" currencySymbol="eur"
-											value="${Pizza.hinta}" />
-									</p>
+									
 									<input type="hidden" name='tuote' value='${Pizza.id}'>
 								
 									<div class="lisaa">
@@ -70,6 +67,10 @@
 											class="btn btn-success">Lis‰‰</button>
 									
 									</div>
+									<p>
+										<fmt:formatNumber type="currency" currencySymbol="eur"
+											value="${Pizza.hinta}" />
+									</p>
 								</div>
 								<div class="panel-body">
 									<c:forEach items="${Pizza.taytteet}" var="pizzantaytteet" varStatus="status">

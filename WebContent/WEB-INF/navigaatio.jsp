@@ -39,7 +39,7 @@
 
 
 				<li><a href="<c:url value="/koriservlet"></c:url>"><span
-						class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+						class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
 						Ostoskori 
 						<c:if test="${not empty ostoskorisumma && ostoskorisumma > 0}">
 								<span class="ostoskorihinta">${ostoskorisumma } &euro;</span>
