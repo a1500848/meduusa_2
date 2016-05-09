@@ -90,8 +90,8 @@ body {
 
 /* etusivun kuvat */
 img {
-  width:1500px;
-  height:800px;
+  width:900px;
+  height:480px;
   border-radius: 5px;
 }
 
@@ -239,11 +239,11 @@ hr {
 /* slideshow*/
 .main {
   position:relative;
-  width: 1500px;
+  width: 900px;
   border:none;
   border-radius: 5px;
   max-width: 100%;
-  height: 800px;
+  height: 480px;
   max-height: auto;
   margin-left: auto;
   margin-right: auto;
