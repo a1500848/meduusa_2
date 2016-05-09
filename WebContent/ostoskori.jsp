@@ -51,17 +51,17 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td data-th="Product">
+							<td data-th="Tuote">
 								<div class="row">
 									<div class="col-sm-12">
 										<h4 class="nomargin">${itemi.nimi }</h4>
 									</div>
 								</div>
 							</td>
-							<td data-th="Price"></td>
-							<td data-th="Quantity">
+							<td data-th=""></td>
+							<td data-th="">
 							</td>
-							<td data-th="Subtotal" class="text-center"><fmt:formatNumber value="${itemi.hinta } " type="currency" currencySymbol="eur"/></td>
+							<td data-th="Hinta" class="text-center"><fmt:formatNumber value="${itemi.hinta } " type="currency" currencySymbol="eur"/></td>
 							<td class="actions" data-th="">
 								<a href="?poista=${status.index }" class="btn btn-danger btn-sm">Poista</a>								
 							</td>
@@ -69,9 +69,7 @@
 					</tbody>
 					</c:forEach>
 					<tfoot>
-						<tr class="visible-xs">
-							<td class="text-center"><strong>Total 1.99</strong></td>
-						</tr>
+						
 						<tr>
 							<td><a href="controller" class="btn btn-warning"><i class="fa fa-angle-left"></i> Jatka ostoksia</a></td>
 							<td colspan="2" class="hidden-xs"></td>

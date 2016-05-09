@@ -80,6 +80,18 @@ public class KoriServlet extends HttpServlet {
 
 				ostoskori.add(uusituote);
 			}
+			double summa = 0;
+			for (int i = 0; i < ostoskori.size(); i++) {
+				summa += ostoskori.get(i).getHinta();
+			}
+
+			// Setataan lista-attribuutti
+			session.setAttribute("kori", ostoskori);
+			session.setAttribute("ostoskorisumma", summa);
+			request.setAttribute("kori", ostoskori);
+			request.setAttribute("ostoskorisumma", summa);
+			
+			response.sendRedirect(request.getContextPath() + "/koriservlet");
 
 		} else if (poista != null) {
 			// tuotteeen poisto
@@ -97,11 +109,22 @@ public class KoriServlet extends HttpServlet {
 			for (int i = 0; i < ostoskori.size(); i++) {
 				System.out.println(i + " - " + ostoskori.get(i).getNimi());
 			}
+			double summa = 0;
+			for (int i = 0; i < ostoskori.size(); i++) {
+				summa += ostoskori.get(i).getHinta();
+			}
 
+			// Setataan lista-attribuutti
+			session.setAttribute("kori", ostoskori);
+			session.setAttribute("ostoskorisumma", summa);
+			request.setAttribute("kori", ostoskori);
+			request.setAttribute("ostoskorisumma", summa);
+			
+			response.sendRedirect(request.getContextPath() + "/koriservlet");
 		}
 
 		// Yhteissumma
-
+		else {
 		double summa = 0;
 		for (int i = 0; i < ostoskori.size(); i++) {
 			summa += ostoskori.get(i).getHinta();
@@ -117,7 +140,7 @@ public class KoriServlet extends HttpServlet {
 		//response.sendRedirect("koriservlet");
 		rd.forward(request, response);
 
-	}
+	}}
 
 	protected void doPost(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
