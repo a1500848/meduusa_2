@@ -113,7 +113,7 @@ public class KoriServlet extends HttpServlet {
 		request.setAttribute("ostoskorisumma", summa);
 
 		RequestDispatcher rd = request.getRequestDispatcher("ostoskori.jsp");
-		// response.sendRedirect("koriservlet");
+		//response.sendRedirect("koriservlet");
 		rd.forward(request, response);
 
 	}

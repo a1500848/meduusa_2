@@ -49,6 +49,9 @@
 											<h3>Hinta: ${itemi.hinta }</h3><br> <br> <br> <a
 												href="?poista=${status.index }">Poista</a> <br>
 										</div>
+										<br>Yhteishinta:
+								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
+								<br>
 									</c:forEach>
 								</c:otherwise>
 							</c:choose>
@@ -57,9 +60,7 @@
 							</br>
 							<p></p>
 							<h3>
-								<br>Yhteishinta:
-								<fmt:formatNumber value="${ostoskorisumma}" type="currency" />
-								<br>
+								
 								<br> <a href="checkout">Tilaukseen</a>
 							</h3>
 
