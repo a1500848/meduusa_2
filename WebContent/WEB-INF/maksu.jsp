@@ -77,6 +77,7 @@
 
 <div class="col-md-6">
 						<div class="tilaus">
+<br>
 						<table>
 
 							
@@ -85,15 +86,15 @@
 
 
 									<tr>
-										<th>Valitut tuotteet</th>
+										<th>Tuote</th>
 										<td>${itemi.nimi }</td>
 									</tr>
 
 									<tr>
 										<th>Hinta</th>
-										<td>${itemi.hinta }</td>
+										<td>${itemi.hinta } &euro;</td>
 									</tr>
-									
+									<tr><td colspan="2">&nbsp;</td></tr>
 
 									
 
@@ -102,7 +103,7 @@
 								<c:when test="${not empty ostoskorisumma }">
 								<tr>
 								<th>Ostoskorin yhteishinta</th>
-										<td>${ostoskorisumma }</td>
+										<td>${ostoskorisumma } &euro;</td>
 										
 
 									</tr>
@@ -125,7 +126,7 @@
 
 				<div class="form-group col-lg-12">
 					<input type="hidden" name="save" value="contact">
-					<button type="submit" class="btn btn-default">Maksa tilaus</button>
+					<button type="submit" class="btn btn-default jokunappi">Maksa tilaus</button>
 
 
 				</div>

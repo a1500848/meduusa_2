@@ -336,6 +336,10 @@ height: auto;
 .tilaus td{
 	float:right;
 }
+.jokunappi {
+	float:right;
+	margin-top: 37px;
+}
 .ostoskori_yla h2 {
 	color: white;
 }
