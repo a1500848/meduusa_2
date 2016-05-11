@@ -44,7 +44,7 @@
       </div>
       <div class="col-md-4">
         <p><strong>Phone:</strong> 0402134433</p>
-        <p><strong>Email:</strong> name@example.com</p>
+        <p><strong>Email:</strong> castello@fiori.fi</p>
         <p><strong>Osoite:</strong> Hämeenlinna, Keskusta 33110</p>
       </div>
     </div>
