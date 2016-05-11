@@ -58,7 +58,7 @@ public class KirjautumisController extends HttpServlet{
 		KayttajaDAO kayttajaDAO = new KayttajaDAO();
 		Kayttaja kayttaja = kayttajaDAO.kirjaudu(sahkoposti, salasana);
 		System.out.println(sahkoposti);
-		if (kayttaja.getSahkoposti() != null) {
+		if (kayttaja.getSahkoposti() != null || (kayttaja.getSahkoposti() != null && kayttaja.getSahkoposti() != "")) {
 			HttpSession session = req.getSession(true);
 			session.setAttribute("kayttaja", kayttaja);
 			RequestDispatcher disp = req

@@ -91,7 +91,7 @@ public class KoriServlet extends HttpServlet {
 			request.setAttribute("kori", ostoskori);
 			request.setAttribute("ostoskorisumma", summa);
 			
-			response.sendRedirect(request.getContextPath() + "/koriservlet");
+			response.sendRedirect(request.getContextPath() + "/controller?" + pizzanimi + "_lisatty_koriin");
 
 		} else if (poista != null) {
 			// tuotteeen poisto

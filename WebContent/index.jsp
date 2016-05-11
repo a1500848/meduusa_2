@@ -45,6 +45,7 @@
       <div class="page-header">
         <h1>Castello &amp; Fiori</h1>
         <p>Parhaat pizzat koko maassa!</p>
+        <p>Auki joka päivä 8:00-21:00</p>
       </div>
     </div>
 

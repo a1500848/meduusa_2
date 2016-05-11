@@ -40,7 +40,14 @@ public class KayttajaDAO extends HttpServlet {
 		ArrayList<String> parametrit = new ArrayList<String>();
 		parametrit.add(sahkoposti);
 
-		kysely.suoritaYksittainenKyselyParametreilla(sqlsuola, parametrit);
+		int maara = kysely.suoritaYksittainenKyselyParametreilla(sqlsuola, parametrit);
+		
+		if (maara < 1) {
+			Kayttaja homokayttaja = new Kayttaja();
+			homokayttaja.setSahkoposti(null);
+			return homokayttaja;
+		}
+		
 		ArrayList<HashMap<String, String>> tulosjoukko = kysely.getTulosjoukko();
 
 		Iterator iter = kysely.getTulosjoukko().iterator();
