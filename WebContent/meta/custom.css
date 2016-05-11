@@ -330,6 +330,12 @@ height: auto;
 .tilaus {
 	color:white;
 }
+.tilaus table {
+	width: 100%;
+}
+.tilaus td{
+	float:right;
+}
 .ostoskori_yla h2 {
 	color: white;
 }

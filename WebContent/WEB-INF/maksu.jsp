@@ -42,11 +42,12 @@
 
 	<div class="lista">
 		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<hr>
+		<hr>
 					<h2 class="intro-text text-center ostootsikko">Tilauksen teko</h2>
 					<hr>
+			<div class="row">
+				<div class="col-md-6">
+					
 					<form role="form" method="post">
 						<div class="row">
 							<div class="form-group col-lg-12">
@@ -72,9 +73,9 @@
 									class="form-control" name='cust_puhelin' placeholder="Puhelinnumero" value='<c:out value="${kayttaja.puhelin }"></c:out>'/>
 							</div>
 						</div>
+</div>
 
-
-
+<div class="col-md-6">
 						<div class="tilaus">
 						<table>
 
@@ -91,8 +92,8 @@
 									<tr>
 										<th>Hinta</th>
 										<td>${itemi.hinta }</td>
-
 									</tr>
+									
 
 									
 
@@ -100,8 +101,9 @@
 								<c:choose>
 								<c:when test="${not empty ostoskorisumma }">
 								<tr>
-										<th>${ostoskorisumma }</th>
-										<td>Ostoskorin yhteishinta</td>
+								<th>Ostoskorin yhteishinta</th>
+										<td>${ostoskorisumma }</td>
+										
 
 									</tr>
 								</c:when>
@@ -128,8 +130,9 @@
 
 				</div>
 				</form>
-			</div>
+			
 		</div>
+	</div>
 	</div>
 	</div>
 
