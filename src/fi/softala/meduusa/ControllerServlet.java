@@ -39,14 +39,8 @@ public class ControllerServlet extends HttpServlet {
 
 		// Tietokannasta pizzat
 		PizzaDAO pDao = new PizzaDAO();
-		pDao.avaaYhteys();
 		ArrayList<Tuote> lista = pDao.haeTuotteet();
 		ArrayList<Tayte> tayte = pDao.haeTaytteet();
-		try {
-			pDao.suljeYhteys();
-		} catch (Exception ex) {
-			System.out.println(ex);
-		}
 
 		// Sessionhallinta / kello
 		HttpSession sessio = request.getSession();

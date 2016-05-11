@@ -45,14 +45,10 @@ public class AdminController extends HttpServlet {
 			if (kayttaja.sahkoposti.equals("admin@meduusa.fi")) {
 				// Tietokannasta pizzat
 				PizzaDAO pDao = new PizzaDAO();
-				pDao.avaaYhteys();
+				
 				ArrayList<Tuote> lista = pDao.adminHaeTuotteet();
 				ArrayList<Tayte> tayte = pDao.haeTaytteet();
-				try {
-					pDao.suljeYhteys();
-				} catch (Exception ex) {
-					System.out.println(ex);
-				}
+				
 
 				// Sessionhallinta / kello
 				Date aloitusaika = new Date();

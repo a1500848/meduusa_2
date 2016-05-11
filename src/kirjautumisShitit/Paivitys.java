@@ -52,6 +52,30 @@ public class Paivitys {
 		}
 		return tulokset;
 	}
+	
+	public int suoritaSqlParametreillaPalautaAvaimetOstoskoriin(String sqlLause,
+			ArrayList<String> parametrit) {
+		
+		int avain = -1;
+
+		try {
+			PreparedStatement valmisteltuLause = yhteys
+					.prepareStatement(sqlLause, Statement.RETURN_GENERATED_KEYS);
+			for (int i = 0; i < parametrit.size(); i++) {
+				valmisteltuLause.setObject(i + 1, parametrit.get(i));
+			}
+			
+			ResultSet rs = valmisteltuLause.getGeneratedKeys();
+			rs.next();
+			avain = rs.getInt(1);
+
+			System.out.println(valmisteltuLause);
+			valmisteltuLause.executeUpdate();
+		} catch (SQLException ex) {
+			Yhteys.kasitteleVirhe("Virhe kyselyn suorittamisessa.", ex);
+		}
+		return avain;
+	}
 
 	/**
 	 * Suorittaa INSERT-, UPDATE- sekä DELETE-lauseet.

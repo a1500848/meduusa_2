@@ -16,7 +16,6 @@ public class RegisterController extends HttpServlet {
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
 
 		String sahkoposti = request.getParameter("sahkoposti");
 		String salasana = request.getParameter("salasana");
@@ -63,7 +62,7 @@ public class RegisterController extends HttpServlet {
 			if (i > 0) {
 				response.sendRedirect("rekisterointi.jsp");
 			} else {
-				out.print("Problim offiker");
+				System.out.print("Rekisteröinti epäonnistui");
 			}
 			
 		}
@@ -72,7 +71,6 @@ public class RegisterController extends HttpServlet {
 			System.out.println(e2);
 		}
 
-		out.close();
 	}
 
 	protected void doGet(HttpServletRequest request,
