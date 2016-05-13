@@ -1,7 +1,6 @@
-package fi.softala.meduusa;
+package fi.softala.meduusa.hallinta;
 
 import java.io.IOException;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 
-import fi.DAOT.meduusa.PizzaDAO;
+import fi.softala.meduusa.bean.Kayttaja;
+import fi.softala.meduusa.bean.Tayte;
+import fi.softala.meduusa.bean.Tuote;
+import fi.softala.meduusa.daot.PizzaDAO;
 
 @WebServlet("/adminController")
 public class AdminController extends HttpServlet {
@@ -34,7 +36,6 @@ public class AdminController extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
-		java.io.PrintWriter wout = response.getWriter();
 
 		HttpSession sessio = request.getSession(false);
 
@@ -42,7 +43,7 @@ public class AdminController extends HttpServlet {
 
 			Kayttaja kayttaja = (Kayttaja) sessio.getAttribute("kayttaja");
 
-			if (kayttaja.sahkoposti.equals("admin@meduusa.fi")) {
+			if (kayttaja.getSahkoposti().equals("admin@meduusa.fi")) {
 				// Tietokannasta pizzat
 				PizzaDAO pDao = new PizzaDAO();
 				
@@ -58,9 +59,8 @@ public class AdminController extends HttpServlet {
 				request.setAttribute("lista", lista);
 				request.setAttribute("taytteet", tayte);
 				
-				System.out.println(lista.size() + "moi");
+				System.out.println(lista.size());
 
-				System.out.println("MOROO");
 				RequestDispatcher rd = request
 						.getRequestDispatcher("WEB-INF/adminlista.jsp");
 
@@ -128,7 +128,7 @@ public class AdminController extends HttpServlet {
 				idint = Integer.parseInt(id);
 			}
 			pDao.piilotaTuote(idint);
-			response.sendRedirect("adminController");
+			response.sendRedirect(request.getContextPath() + "/adminController?" + "piilotettu");
 		} else if (action != null && action.equals("tuoPizza")){
 			String id = request.getParameter("id");
 			int idint = 0;
@@ -136,7 +136,7 @@ public class AdminController extends HttpServlet {
 				idint = Integer.parseInt(id);
 			}
 			pDao.tuoTuote(idint);
-			response.sendRedirect("adminController");
+			response.sendRedirect(request.getContextPath() + "/adminController?" + "tuotu");
 		}
 		
 		else {

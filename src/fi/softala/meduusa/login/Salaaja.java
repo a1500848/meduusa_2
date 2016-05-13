@@ -1,4 +1,4 @@
-package kirjautumisShitit;
+package fi.softala.meduusa.login;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;

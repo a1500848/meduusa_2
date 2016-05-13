@@ -1,9 +1,5 @@
-package kirjautumisShitit;
+package fi.softala.meduusa.login;
 import java.io.IOException;
-
-import fi.softala.meduusa.*;
-import fi.ostoskori.meduusa.*;
-import fi.DAOT.meduusa.*;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import fi.softala.meduusa.Kayttaja;
-import fi.DAOT.meduusa.KayttajaDAO;
+import fi.softala.meduusa.bean.Kayttaja;
+import fi.softala.meduusa.daot.*;
+import fi.softala.meduusa.hallinta.*;
+import fi.softala.meduusa.ostoskori.*;
 
 
 @WebServlet ("/Kirjautuminen")

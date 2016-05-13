@@ -1,4 +1,4 @@
-package fi.softala.meduusa;
+package fi.softala.meduusa.bean;
 
 import java.util.ArrayList;
 

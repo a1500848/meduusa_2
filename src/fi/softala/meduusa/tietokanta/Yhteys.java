@@ -1,4 +1,4 @@
-package kirjautumisShitit;
+package fi.softala.meduusa.tietokanta;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

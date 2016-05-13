@@ -1,4 +1,4 @@
-package fi.DAOT.meduusa;
+package fi.softala.meduusa.daot;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import kirjautumisShitit.Kysely;
-import kirjautumisShitit.Paivitys;
-import kirjautumisShitit.Yhteys;
-import fi.softala.meduusa.Pizzatayte;
-import fi.softala.meduusa.Tayte;
-import fi.softala.meduusa.Tuote;
+import fi.softala.meduusa.bean.Pizzatayte;
+import fi.softala.meduusa.bean.Tayte;
+import fi.softala.meduusa.bean.Tuote;
+import fi.softala.meduusa.tietokanta.Kysely;
+import fi.softala.meduusa.tietokanta.Paivitys;
+import fi.softala.meduusa.tietokanta.Yhteys;
 
 public class PizzaDAO {
 
@@ -162,26 +162,33 @@ public class PizzaDAO {
 	}
 	public ArrayList<Tuote> adminHaeTuotteet() {
 
+		Yhteys yhteys = new Yhteys();
 		ArrayList<Tuote> tuotteet = new ArrayList<Tuote>();
 
 		try {
 
 			// suoritetaan haku
 			String sql = "SELECT pizzaid, p.nimi, hinta, t.tayteid, t.taytenimi AS tayte, p.piilotus FROM pizzatayte pt JOIN pizzakoe p ON pt.pizzaid = p.id JOIN tayte t USING(tayteid) ORDER BY nimi ASC";
-			Statement haku = yhteys.createStatement();
-			ResultSet resultset = haku.executeQuery(sql);
+			Kysely kysely = new Kysely(yhteys.getYhteys());
+			kysely.suoritaYksittainenKysely(sql);
 			
+			ArrayList<HashMap> tulokset = kysely.getTulosjoukko();
+			
+			Iterator iterator = kysely.getTulosjoukko().iterator();
 			// k‰yd‰‰n hakutulokset l‰pi
-			while (resultset.next()) {
 
-				String tuoteId = resultset.getString("pizzaid");
-				String tuoteNimi = resultset.getString("nimi");
-				String tuoteHinta = resultset.getString("hinta");
-				String tayteId = resultset.getString("tayteid");
-				String tayte = resultset.getString("tayte");
-				String piilotus = resultset.getString("piilotus");
+				while (iterator.hasNext()) {
+					HashMap map = (HashMap) iterator.next();
+					String tuoteId = (String) map.get("pizzaid");
+					String tuoteNimi = (String) map.get("nimi");
+					String tuoteHinta = (String) map.get("hinta");
+					String tayteId = (String) map.get("tayteid");
+					String tayte = (String) map.get("taytenimi");
+					String piilotus = (String) map.get("piilotus");
+					boolean pizzaloytyi = false;
+				
 
-				boolean pizzaloytyi = false;
+				
 
 				for (int i = 0; i < tuotteet.size(); i++) {
 					if (tuotteet.get(i).getId() == Integer.parseInt(tuoteId)) {

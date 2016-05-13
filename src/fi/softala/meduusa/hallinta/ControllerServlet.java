@@ -1,7 +1,6 @@
-package fi.softala.meduusa;
+package fi.softala.meduusa.hallinta;
 
 import java.io.IOException;
-
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpSessionEvent;
 
-import fi.DAOT.meduusa.PizzaDAO;
+import fi.softala.meduusa.bean.Pizzatayte;
+import fi.softala.meduusa.bean.Tayte;
+import fi.softala.meduusa.bean.Tuote;
+import fi.softala.meduusa.daot.PizzaDAO;
 
 
 @WebServlet("/controller")

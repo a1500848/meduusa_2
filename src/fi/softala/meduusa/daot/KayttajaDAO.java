@@ -1,4 +1,4 @@
-package fi.DAOT.meduusa;
+package fi.softala.meduusa.daot;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -18,11 +18,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kirjautumisShitit.Kysely;
-import kirjautumisShitit.Paivitys;
-import kirjautumisShitit.Yhteys;
-import kirjautumisShitit.Salaaja;
-import fi.softala.meduusa.Kayttaja;
+import fi.softala.meduusa.bean.Kayttaja;
+import fi.softala.meduusa.login.Salaaja;
+import fi.softala.meduusa.tietokanta.Kysely;
+import fi.softala.meduusa.tietokanta.Paivitys;
+import fi.softala.meduusa.tietokanta.Yhteys;
 
 
 public class KayttajaDAO extends HttpServlet {

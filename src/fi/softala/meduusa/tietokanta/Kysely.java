@@ -1,4 +1,4 @@
-package kirjautumisShitit;
+package fi.softala.meduusa.tietokanta;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
-
-import kirjautumisShitit.Yhteys;
 
 /**
  * Sis‰lt‰‰ tietokantakyselyiss‰ tarvittavat metodit ja tuloksen tallentamiseen

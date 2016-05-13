@@ -1,4 +1,4 @@
-package fi.softala.meduusa;
+package fi.softala.meduusa.hallinta;
 
 import java.io.IOException;
 import java.io.InputStream;

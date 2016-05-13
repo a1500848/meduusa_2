@@ -1,4 +1,4 @@
-package fi.ostoskori.meduusa;
+package fi.softala.meduusa.ostoskori;
 
 public class KoriTuote {
 	private int id;

@@ -1,4 +1,4 @@
-package fi.ostoskori.meduusa;
+package fi.softala.meduusa.ostoskori;
 
 import java.io.*;
 import java.sql.*;

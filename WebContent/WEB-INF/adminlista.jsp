@@ -1,6 +1,6 @@
 <%@ page import="java.util.List"%>
 <%@ page import="java.text.DecimalFormat"%>
-<%@ page import="fi.softala.meduusa.Tuote"%>
+<%@ page import="fi.softala.meduusa.bean.Tuote"%>
 <%@ page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
@@ -161,6 +161,7 @@
 
 
 		</div>
+		
 
 		<!--Footer-->
 		<div class="nav navbar-default navbar-fixed-bottom">

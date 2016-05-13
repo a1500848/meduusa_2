@@ -1,4 +1,4 @@
-package kirjautumisShitit;
+package fi.softala.meduusa.login;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,6 +9,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import fi.softala.meduusa.tietokanta.Kysely;
+import fi.softala.meduusa.tietokanta.Paivitys;
+import fi.softala.meduusa.tietokanta.Yhteys;
 
 @WebServlet("/rekisteroidy")
 public class RegisterController extends HttpServlet {
