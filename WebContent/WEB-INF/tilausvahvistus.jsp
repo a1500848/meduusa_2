@@ -74,6 +74,7 @@
 			</c:forEach>
 			<c:choose>
 								<c:when test="${not empty ostoskorisumma }">
+								<tr><td>&nbsp;</td></tr>
 								<tr>
 								<th>Ostoskorin yhteishinta</th>
 										<td>${ostoskorisumma }</td>
