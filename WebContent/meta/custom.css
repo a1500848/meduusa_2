@@ -329,6 +329,7 @@ height: auto;
 
 .tilaus {
 	color:white;
+	font-size: 20px;
 }
 .tilaus table {
 	width: 100%;
@@ -406,4 +407,8 @@ height: auto;
 }
 .ostoskori span {
 	font-size: 25px;
+}
+
+.tilausvahvistus {
+	font-size: 20px;
 }

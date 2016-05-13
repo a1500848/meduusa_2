@@ -43,11 +43,13 @@
 			<div class="row">
 				<div class="tilaus">
 				<div class="col-md-12">
-					<h2>Tilausvahvistus</h2>
+				<div class="page-header">
+					<h1>Tilausvahvistus</h1>
+					</div>
 				</div>
 				<div class="col-md-12">
 
-					<h2><p>Tilauksen tiedot</p></h2><!-- Tähän kohtaan tulee tilauksen tiedot lisättynä javalla tietokannasta -->
+					<h1><p>Tilauksen tiedot</p></h1><!-- Tähän kohtaan tulee tilauksen tiedot lisättynä javalla tietokannasta -->
 
       	<table>
 		          	
@@ -87,29 +89,29 @@
 
 
 
-					<h2><p>Asiakkaan tiedot</p></h2>
-					<table>
+					<h1><p>Asiakkaan tiedot</p></h1>
+					<table class="tilausvahvistus">
 						<tr>
-							<td>Asiakas nimi:</td>
+							<th>Asiakkaan nimi:</th>
 							<td><% out.println(request.getParameter("cust_nimi")); %></td>
 						</tr>
 						<tr>
-							<td>Asiakas osoite:</td>
+							<th>Asiakkaan osoite:</th>
 							<td><% out.println(request.getParameter("cust_osoite")); %></td>
 						</tr>
-						<td>Asiakas postinumero:</td>
+						<th>Asiakkaan postinumero:</th>
 						<td><% out.println(request.getParameter("cust_numero")); %></td>
 						</tr>
-						<td>Asiakas sähköposti:</td>
+						<th>Asiakkaan sähköposti:</th>
 						<td><% out.println(request.getParameter("cust_sahkoposti")); %></td>
 						</tr>
 						<tr>
-							<td>Asiakas puhelinnumero:</td>
+							<th>Asiakkaan puhelinnumero:</th>
 							<td><% out.println(request.getParameter("cust_puhelin")); %></td>
 							
 						</tr>
 						<tr>
-							<td>Maksutapa:</td>
+							<th>Maksutapa:</th>
 							<td><%
 										String select[] = request.getParameterValues("id");
 										if (select != null && select.length != 0) {
